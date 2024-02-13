@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marvel&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Biz simulation</title>
+
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      background-color: #9eb2b4;
+
+    }
+
+    .bg {
+      /* The image used */
+      background-image: url("/assets/img/index.png");
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .content {
+      position: fixed;
+      left: 55%;
+      bottom: 55%;
+      color: #2D5366;
+      padding: 3%;
+      font-family: Marvel;
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+    }
+  </style>
+
+<body>
+
+  <div class="bg"></div>
+  <div class="content">
+    <input type="button"
+      style="border-radius: 0.625rem; background: #FCF5E8; box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.25);"
+      value="BEGIN" onclick="window.location.href='http://127.0.0.1:5500/dashboard.html';">
+
+  </div>
+
+</body>
+
+</html>

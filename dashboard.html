@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Biz simulation</title>
+    <style>
+        /* CSS for the fade-in effect */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 100s ease-in-out;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+    
+</head>
+
+
+    
+   
+
+<body>
+    <div class="mainPage">
+        <div class="header">
+            <span class="back">
+                <img id="backImg" src="./assets/img/back.svg" alt="back" srcset="" />
+            </span>
+            <span class="headerEdit">
+                <input id="BusinessName"  type="text" placeholder="Name of the Business" onchange="get_business_name()"/>
+            </span>
+        </div>
+
+        <div class="gridLayout">
+            <div id="img1">
+                <div id="imgBack1"></div>
+
+                <span class="nameGrey" id="name1">Market Landscape And Scales</span>
+                <div id="marketLandscape">
+                    <div id="leftSection">
+                        <div id="headerButtons">
+                            <button class="img1HeaderButtons" id="totalAddresable" onclick="populate_TAM()">
+                                Total Addresable Market
+                            </button>
+                            <button class="img1HeaderButtons" id="serviceableAdd" onclick="populate_SAM()">
+                                Serviceable Add. Market
+                            </button>
+                            <button class="img1HeaderButtons" id="customerSpending" onclick="populate_csp()">
+                                Customer Spending Power
+                            </button>
+                            <button class="img1HeaderButtons" id="serviceableObt">
+                                Serviceable Obt. Market
+                            </button>
+                        </div>
+
+                        <div id="middleSection">
+                            
+                            <span id="TAM">
+                              
+                                <div id="tableDiv_TAM" style="overflow-y: auto; height: 20rem;">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th>Name of the Customer Segment</th>
+                                            <th>Total Size of the Customer Segment</th>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                            
+                                <div id="segment">
+                                    <div id="addCustomerBtn">
+                                        <button class="button_frame" id="minus-button_TAM">
+                                            <img src="./assets/img/minus.svg" alt="Minus">
+                                        </button>
+                                        <div>Customer Segment</div>
+                                        <button class="button_frame" id="add-button_TAM">
+                                            <img src="./assets/img/add.svg" alt="Add" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="totalTab">
+                                    <div class="total_text">Total Size of TAM:</div>
+                                    <div class="total_text_number" id="total_tam">0</div>
+                                    <div class="total_save_div">
+                                        <button class="total_save_div_button" onclick="retrieveTableDataTAM()">Save</button>
+                                    </div>
+                                </div>
+                      
+                            </span>
+
+                            <span id="SAM">
+                                <div id="tableDiv_SAM" style="overflow-y: auto; height: 20rem;">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th>Name of the Customer Segment</th>
+                                            <th>Total Size of the Customer Segment</th>
+                                            <th>Segment’s Product/ Service Usage Ratio</th>
+                                            <th>Size of SAM of Individual Segment</th>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                                <!-- <div id="segment">
+                                    <div id="addCustomerBtn">
+                                        <button class="button_frame" id="minus-button_SAM">
+                                            <img src="./assets/img/minus.svg" alt="Minus">
+                                        </button>
+                                        <div>Customer Segment</div>
+                                        <button class="button_frame" id="add-button_SAM">
+                                            <img src="./assets/img/add.svg" alt="Add" />
+                                        </button>
+                                    </div>
+                                </div> -->
+                                <div id="totalTab">
+                                    <div class="total_text">Total Size of SOM:</div>
+                                    <div class="total_text_number" id="total_som"></div>
+                                    <div class="total_save_div">
+                                        <button class="total_save_div_button" onclick="retrieveTableDataSAM()">Save</button>
+                                    </div>
+                                </div>
+                            </span>
+
+                            <span id="CSP">
+                                <div id="tableDiv">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th>Customer Spending Power:</th>
+                                            <td>
+                                                <input class="inputs"  id='spending power' placeholder="Enter Numerical Value" />
+                                            </td>
+                                            <td>
+                                                <div class="total_save_div">
+                                                    <button class="total_save_div_button" onclick="save_spending()">Save</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>No of Operational Days :</th>
+                                            <td>
+                                                <input class="inputs" id='op' placeholder="Enter Numerical Value" />
+                                            </td>
+                                            <td>
+                                                <div class="total_save_div">
+                                                    <button class="total_save_div_button" onclick="save_op()">Save</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total Expenditure by SOM :</th>
+                                            <td colspan="2">
+                                                <div class="box_CSP">
+                                                    <div class="boxTop_CSP">
+                                                        <div style="text-align: left"></div>
+                                                        <div style="text-align: right; color: white">
+                                                            per day
+                                                        </div>
+                                                    </div>
+                                                    <div class="orangeBoxTotal_CSP">
+                                                        <div style="text-align: left">INR</div>
+                                                        <div style="text-align: right; overflow-x: auto">
+                                                            24,05,000
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>Total Expenditure by SOM :</th>
+                                            <td colspan="2">
+                                                <div class="box_CSP">
+                                                    <div class="boxTop_CSP">
+                                                        <div style="text-align: left"></div>
+                                                        <div style="text-align: right; color: white">
+                                                            per month
+                                                        </div>
+                                                    </div>
+                                                    <div class="orangeBoxTotal_CSP">
+                                                        <div style="text-align: left">INR</div>
+                                                        <div style="text-align: right; overflow-x: auto">
+                                                            6,01,25,000
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total Expenditure by SOM :</th>
+                                            <td colspan="2">
+                                                <div class="box_CSP">
+                                                    <div class="boxTop_CSP">
+                                                        <div style="text-align: left"></div>
+                                                        <div style="text-align: right; color: white">
+                                                            per year
+                                                        </div>
+                                                    </div>
+                                                    <div class="orangeBoxTotal_CSP">
+                                                        <div style="text-align: left">INR</div>
+                                                        <div style="text-align: right; overflow-x: auto">
+                                                            72,15,00,000
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </span>
+
+                            <!-- <span id="SOM">
+                                <div id="tableDiv">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th>Number of the Customer Segment</th>
+                                            <th>Total Size of the Customer Segment</th>
+                                            <th>Segment’s Product/ Service Usage Ratio</th>
+                                            <th>Size of SOM of Individual Segment</th>
+                                        </tr>
+                                        <tr>
+                                            <td><input placeholder="Enter Name of Customer Segment"></td>
+                                            <td><input placeholder="Enter Numerical Value"></td>
+                                            <td><input placeholder="Enter Numerical Value"></td>
+                                            <td><input placeholder="Enter Numerical Value"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input placeholder="Enter Name of Customer Segment"></td>
+                                            <td><input placeholder="Enter Numerical Value"></td>
+                                            <td><input placeholder="Enter Numerical Value"></td>
+                                            <td><input placeholder="Enter Numerical Value"></td>
+                                        </tr>
+                                    </table>
+
+
+                                </div>
+                                <div id="segment">
+                                    <div id="addCustomerBtn" style="padding:2%;">
+                                        <div>Add Customer Segment</div>
+                                        <div id="addImg"></div>
+                                    </div>
+                                </div>
+                                <div id="totalTab">
+                                    <div
+                                        style="grid-column-start: 1; grid-column-end: 1;font-size:3.6vmin;color:white;display:flex;align-self: center;justify-self: center;;">
+                                        Total Size of TAM:</div>
+                                    <div
+                                        style="grid-column-start: 2; grid-column-end: 2;color: #2D5366;border-radius:12px;width:90%;height:70%;font-size:3.3vmin;background: #FCF5E8;box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.25) inset;display:flex;align-items: center;align-self:center;justify-content: flex-end;font-weight:700;padding:1%;">
+                                        25000</div>
+                                    <div
+                                        style="grid-column-start: 3; grid-column-end: 3;display:flex;height:90%;width:90%;justify-items:flex-start;outline:none;">
+                                        <button
+                                            style="font-size:2vmin;border-radius:10px;border-radius: 7px;
+                                background: #E89572;color:#FCF5E8;outline:none;padding-left:10%;padding-right:10%;">Save</button>
+                                    </div>
+                                </div>
+                            </span> -->
+                        </div>
+                    </div>
+
+                    <div id="rightSection">
+                        <div id="placeholderSection">
+                            <div>
+                                <div>
+                                    <h1>Total Addresable Market (TAM)</h1>
+                                </div>
+                                <div>
+                                    The total addressable market (TAM) refers to the total revenue 
+                                    opportunity available for a product or service within a specific 
+                                    market or industry. It represents the maximum potential sales volume
+                                    that a product or service could achieve if every possible customer 
+                                    in the market purchased it. TAM is often used by businesses to assess
+                                    the potential size and attractiveness of a market before entering or
+                                    investing in it. It helps companies understand the revenue potential 
+                                    and make strategic decisions regarding product development, marketing, and expansion.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h1>Serviceable Addressable Market (SAM)</h1>
+                                </div>
+                                <div>
+                                    The serviceable addressable market (SAM) refers to the portion of the 
+                                    total market that a product or service provider can realistically target
+                                     and serve. It represents the subset of the total market that fits within
+                                      the company's capabilities, resources, and strategic focus.
+                                     Identifying the SAM helps companies understand the potential size of their
+                                      target market and develop effective marketing and sales strategies.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h1>Customer spending power</h1>
+                                </div>
+                                <div>
+                                    Customer spending power refers to the financial capacity of consumers
+                                    to purchase goods and services.It's influenced by factors like income,
+                                    employment, inflation, and savings. Understanding spending power helps
+                                    businesses gauge market demand and tailor their offerings accordingly.
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <h1>Serviceable Obtainable Market (SOM)</h1>
+                                </div>
+                                <div>
+                                    Serviceable Obtainable Market (SOM) refers to the portion of the total
+                                     addressable market (TAM) that a company can realistically capture, 
+                                    considering factors like competition, resources, and market dynamics. 
+                                    It represents the feasible market share a company can achieve within its target market segment.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="img2">
+                <div id="imgBack2"></div>
+                <span class="nameGrey" id="name2">Operational Expenditure</span>
+                <div id="operationalExpenditure"></div>
+            </div>
+            <div id="img3">
+                <div id="imgBack3"></div>
+                <span class="nameGrey" id="name3">Capital Expenditure</span>
+                <div id="capitalExpenditure"></div>
+            </div>
+            <div id="img4">
+                <div id="imgBack4"></div>
+                <span class="nameGrey" id="name4">Sourcing Funds and Capital</span>
+                <div id="sourcingFunds"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="box">
+                <div class="boxTop">
+                    <div style="text-align: left"><b>Earnings Before Tax (EBT)</b></div>
+                    <div style="text-align: right">per month</div>
+                </div>
+
+                <div class="orangeBoxTotal">
+                    <div style="text-align: left">INR</div>
+                    <div style="text-align: right; overflow-x: auto">1,48,537.5</div>
+                </div>
+            </div>
+
+            <div class="box2">
+                <div class="boxTop">
+                    <div style="text-align: left">Working Capital</div>
+                    <div style="text-align: right">for first 3 months</div>
+                </div>
+
+                <div class="orangeBoxTotal">
+                    <div style="text-align: left">INR</div>
+                    <div style="text-align: right; overflow-x: auto">26,58,137.5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- <script src="./assets/js/script.js"></script> -->
+    <script src="./assets/js/tam.js"></script>
+    <script src="./assets/js/sam.js"></script>
+    <script src="./assets/js/csp.js"></script>
+</body>
+
+</html>
