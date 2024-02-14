@@ -21,6 +21,7 @@ function removeRow_SAM() {
     const rows = table_SAM.getElementsByTagName('tr');
     if (rows.length > 1) { // Check if there's more than one row to prevent removing the header
         table_SAM.deleteRow(rows.length);
+        populate_total_som()
     }
 }
 

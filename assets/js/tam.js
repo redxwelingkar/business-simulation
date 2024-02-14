@@ -20,7 +20,9 @@ function removeRow_TAM() {
     const rows = table_TAM.getElementsByTagName('tr');
     if (rows.length > 1) { // Check if there's more than one row to prevent removing the header
         table_TAM.deleteRow(rows.length - 1);
+        populate_total_tam()
     }
+    
 }
 
 // Fetching data from table and inserting into localstorage
