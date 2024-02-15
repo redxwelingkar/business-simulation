@@ -1,9 +1,10 @@
 $("document").ready(function () {
     //$("#").click()
     var whichSelected = "Null";
-    // $("#marketLandscape").hide()
-    $("#marketLandscape").hide();
 
+    // * Market Landscape and Scales Page Animations
+    $("#marketLandscape").hide();
+    $("#TAM").hide();
     $("#SOM").hide();
     $("#SAM").hide();
     $("#CSP").hide();
@@ -25,68 +26,85 @@ $("document").ready(function () {
                 },
             }
         );
-        $("#name1").animate({ left: "-16.1%", width: "25%", opacity: "0.0" });
-        //$('#marketLandscape').show();
-
-        whichSelected = "img1";
-    });
-
-    $("#img2").click(function () {
-        $("#img1").animate({ left: "-50%" }, { duration: 1000 });
-        $("#img2").animate({ left: "5%", width: "90%" }, { duration: 700 });
-        $("#img3").animate({ left: "150%" }, { duration: 1000 });
-        $("#img4").animate({ left: "150%" }, { duration: 750 });
-        $("#imgBack2").animate({ left: "-12%", width: "25%" }, { duration: 500 });
-        $("#name2").animate(
+        $("#name1").animate(
             { left: "-16.1%", width: "25%", opacity: "0.0" },
             { duration: 600 }
         );
-
-        whichSelected = "img2";
+        //$('#marketLandscape').show();
+        whichSelected = "img1";
     });
+
     $("#totalAddresable").click(function () {
         $("#totalAddresable").css({ "background-color": "#00506E" });
         $("#serviceableAdd").css({ "background-color": "#E89572" });
         $("#customerSpending").css({ "background-color": "#E89572" });
         $("#serviceableObt").css({ "background-color": "#E89572" });
         $("#TAM").show();
-        $("#SOM").hide();
         $("#SAM").hide();
         $("#CSP").hide();
-
-        
+        $("#SOM").hide();
     });
+
     $("#serviceableAdd").click(function () {
         $("#serviceableAdd").css({ "background-color": "#00506E" });
         $("#totalAddresable").css({ "background-color": "#E89572" });
         $("#customerSpending").css({ "background-color": "#E89572" });
         $("#serviceableObt").css({ "background-color": "#E89572" });
         $("#TAM").hide();
-        $("#SOM").hide();
         $("#SAM").show();
         $("#CSP").hide();
+        $("#SOM").hide();
     });
+
     $("#customerSpending").click(function () {
         $("#customerSpending").css({ "background-color": "#00506E" });
         $("#serviceableAdd").css({ "background-color": "#E89572" });
         $("#totalAddresable").css({ "background-color": "#E89572" });
         $("#serviceableObt").css({ "background-color": "#E89572" });
-        $("#SOM").hide();
-        $("#SAM").hide();
         $("#TAM").hide();
+        $("#SAM").hide();
         $("#CSP").show();
+        $("#SOM").hide();
     });
+
     $("#serviceableObt").click(function () {
         $("#serviceableObt").css({ "background-color": "#00506E" });
         $("#serviceableAdd").css({ "background-color": "#E89572" });
         $("#totalAddresable").css({ "background-color": "#E89572" });
-
         $("#customerSpending").css({ "background-color": "#E89572" });
-        $("#SOM").show();
-        $("#SAM").hide();
         $("#TAM").hide();
+        $("#SAM").hide();
         $("#CSP").hide();
+        $("#SOM").show();
     });
+
+    // * Operational Expenditure Page Animations
+    $("#operationalExpenditure").hide();
+
+    $("#img2").click(function () {
+        $("#img1").animate({ left: "-50%" }, { duration: 1000 });
+        $("#img2").animate({ left: "5%", width: "90%" }, { duration: 700 });
+        $("#img3").animate({ left: "150%" }, { duration: 1000 });
+        $("#img4").animate({ left: "150%" }, { duration: 750 });
+        $("#operationalExpenditure")
+            .show()
+            .animate({ "margin-right": "25%" }, { duration: 1000, queue: true });
+        $("#imgBack2").animate(
+            { left: "-12%", width: "25%" },
+            {
+                duration: 500,
+                complete: function () {
+                    $("#headerButtons").fadeIn({ queue: true });
+                },
+            }
+        );
+        $("#name2").animate(
+            { left: "-16.1%", width: "25%", opacity: "0.0" },
+            { duration: 600 }
+        );
+        whichSelected = "img2";
+    });
+
     $("#backImg").click(function () {
         console.log(whichSelected);
         if (whichSelected === "img1") {
