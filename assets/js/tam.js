@@ -90,7 +90,7 @@ function populate_TAM(){
   
     
     for (let i = 0; i < data.length; i++) {
-        
+
         const newRow = table_TAM.insertRow();
         for (let key in data[i]) {
             // Insert a new cell for each property
@@ -102,19 +102,13 @@ function populate_TAM(){
             }else{
                 newCell.innerHTML = '<input class="inputs" placeholder="Enter Name of Customer Segment" value='+ data[i][key]+'  >';
             }
-            
-           
         }
     }
     if(localStorage.getItem('total_tam')==="undefined"){
         document.getElementById('total_tam').innerText=0;
     }else{
-        
-        document.getElementById('total_tam').innerText=localStorage.getItem('total_tam');
-        
+        document.getElementById('total_tam').innerText=localStorage.getItem('total_tam');    
     }
-    
-
     }
 }
 

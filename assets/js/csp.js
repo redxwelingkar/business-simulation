@@ -26,7 +26,44 @@ function populate_csp(){
     }else{
         document.getElementById("spending power").value="";
     }
-    
+    //calculate expenditure if op and sp present
+    calculate_total_expenditure()
 
 }
+
+function calculate_total_expenditure(){
+    const op=parseInt(localStorage.getItem('operational days'));
+    const sp=parseInt(localStorage.getItem('spending power'));
+    if(isNaN(op)===false && isNaN(sp)===false ){
+        document.getElementById('TE_SAM_day').innerText=op*sp
+        document.getElementById('TE_SAM_month').innerText=op*sp*30
+        document.getElementById('TE_SAM_year').innerText=op*sp*365
+    }else{
+        document.getElementById('TE_SAM_day').innerText=0
+        document.getElementById('TE_SAM_month').innerText=0
+        document.getElementById('TE_SAM_year').innerText=0
+    }
+
+
+
+}
+
+
+function fill_total_expenditure(){
+   
+    const sp=parseInt(document.getElementById('spending power').value);
+    const op=parseInt(document.getElementById("op").value);
+    if(isNaN(op)===false || isNaN(sp)===false || (op!='' && sp!='')){
+        document.getElementById('TE_SAM_day').innerText=op*sp
+        document.getElementById('TE_SAM_month').innerText=op*sp*30
+        document.getElementById('TE_SAM_year').innerText=op*sp*365
+    } else{
+        document.getElementById('TE_SAM_day').innerText=0
+        document.getElementById('TE_SAM_month').innerText=0
+        document.getElementById('TE_SAM_year').innerText=0
+    }
+
+
+}
+
 

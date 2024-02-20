@@ -58,7 +58,7 @@
                             <button class="img1HeaderButtons" id="customerSpending" onclick="populate_csp()">
                                 Customer Spending Power
                             </button>
-                            <button class="img1HeaderButtons" id="serviceableObt">
+                            <button class="img1HeaderButtons" id="serviceableObt" onclick="populate_som()">
                                 Serviceable Obt. Market
                             </button>
                         </div>
@@ -124,7 +124,7 @@
                                     </div>
                                 </div> -->
                                 <div id="totalTab">
-                                    <div class="total_text">Total Size of SOM:</div>
+                                    <div class="total_text">Total Size of SAM:</div>
                                     <div class="total_text_number" id="total_som"></div>
                                     <div class="total_save_div">
                                         <button class="total_save_div_button"
@@ -140,7 +140,7 @@
                                             <th>Customer Spending Power (per customer/product) :</th>
                                             <td>
                                                 <input class="inputs" id='spending power'
-                                                    placeholder="Enter Numerical Value" />
+                                                    placeholder="Enter Numerical Value" onchange="fill_total_expenditure()" value="0" />
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
@@ -152,7 +152,7 @@
                                         <tr>
                                             <th>No of Operational Days (days per month) :</th>
                                             <td>
-                                                <input class="inputs" id='op' placeholder="Enter Numerical Value" />
+                                                <input class="inputs" id='op' onchange="fill_total_expenditure()" placeholder="Enter Numerical Value" value="0" />
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
@@ -173,8 +173,8 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto">
-                                                            24,05,000
+                                                        <div style="text-align: right; overflow-x: auto" id="TE_SAM_day">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -193,8 +193,8 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto">
-                                                            6,01,25,000
+                                                        <div style="text-align: right; overflow-x: auto" id="TE_SAM_month">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -212,8 +212,8 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto">
-                                                            72,15,00,000
+                                                        <div style="text-align: right; overflow-x: auto" id="TE_SAM_year">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -229,27 +229,27 @@
                                         <tr>
                                             <th>SOM (Percentage of SAM) :</th>
                                             <td>
-                                                <input class="inputs" id='spending power'
-                                                    placeholder="Enter Numerical Value" />
+                                                <input class="inputs" id='som_percentage_new'
+                                                    placeholder="Enter Numerical Value"  onchange="calculate_som()"/>
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
                                                     <button class="total_save_div_button"
-                                                        onclick="save_spending()">Save</button>
+                                                        onclick="retrieve_som()">Save</button>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Serviceable Obt. Market :</th>
                                             <td>
-                                                <input class="inputs" id='op' placeholder="Enter Numerical Value" />
+                                                <input class="inputs" id='som_market' value='0' disabled/>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 <div class="total_save_div">
                                                     <button class="total_save_div_button"
                                                         onclick="save_op()">Save</button>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <th>Total Expenditure by SOM :</th>
@@ -263,8 +263,8 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto">
-                                                            24,05,000
+                                                        <div style="text-align: right; overflow-x: auto" id="TE_SOM_day">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -283,8 +283,8 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto">
-                                                            6,01,25,000
+                                                        <div style="text-align: right; overflow-x: auto" id="TE_SOM_month">
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>
@@ -302,8 +302,8 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto">
-                                                            72,15,00,000
+                                                        <div style="text-align: right; overflow-x: auto" id="TE_SOM_year">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -429,6 +429,7 @@
     <script src="./assets/js/tam.js"></script>
     <script src="./assets/js/sam.js"></script>
     <script src="./assets/js/csp.js"></script>
+    <script src="./assets/js/som.js"></script>
 </body>
 
 </html>

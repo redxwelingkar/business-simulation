@@ -21,7 +21,7 @@ function removeRow_SAM() {
     const rows = table_SAM.getElementsByTagName('tr');
     if (rows.length > 1) { // Check if there's more than one row to prevent removing the header
         table_SAM.deleteRow(rows.length);
-        populate_total_som()
+        populate_total_som1()
     }
 }
 
@@ -139,6 +139,23 @@ function populate_SAM(){
     }
 }
 
+function populate_total_som1(){
+ 
+    var total_som=0;
+    const table_SAM = document.getElementById("tableDiv_SAM").querySelector("table");
+    // Iterate through each row of the table
+    for (let i = 1; i < table_SAM.rows.length; i++) {
+        const row = table_SAM.rows[i];
+        total_som=total_som+parseInt(row.cells[3].querySelector("input").value);
+
+} 
+
+console.log(total_som);
+document.getElementById('total_som').innerText=total_som;
+
+}
+
+
 //ratio calculation
 function update_serviceable_market(){
     
@@ -149,28 +166,13 @@ function update_serviceable_market(){
         const cell1 = row.cells[1];
         const population = cell1.querySelector("input").value;
         const cell3 = row.cells[3];
-        cell3.querySelector("input").value=parseInt(population)*parseFloat(ratio)
-
-
-}
-
-populate_total_som();
-}
-
-
-
-function populate_total_som(){
-    var total_som=0;
-    const table_SAM = document.getElementById("tableDiv_SAM").querySelector("table");
-    // Iterate through each row of the table
-    for (let i = 1; i < table_SAM.rows.length; i++) {
-        const row = table_SAM.rows[i];
-        
-        total_som=total_som+parseInt(row.cells[3].querySelector("input").value);
-
-} 
-console.log(total_som);
-document.getElementById('total_som').innerText=total_som;
+        cell3.querySelector("input").value=parseInt(population)*parseFloat(ratio);
+    }
+    populate_total_som1()
 
 }
+
+
+
+
 
