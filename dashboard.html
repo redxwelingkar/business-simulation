@@ -67,7 +67,7 @@
 
                             <span id="TAM">
 
-                                <div id="tableDiv_TAM" style="overflow-y: auto; height: 20rem;">
+                                <div id="tableDiv_TAM">
                                     <table cellpadding="10" cellspacing="5">
                                         <tr>
                                             <th>Name of the Customer Segment</th>
@@ -101,7 +101,7 @@
                             </span>
 
                             <span id="SAM">
-                                <div id="tableDiv_SAM" style="overflow-y: auto; height: 20rem;">
+                                <div id="tableDiv_SAM">
                                     <table cellpadding="10" cellspacing="5">
                                         <tr>
                                             <th>Name of the Customer Segment</th>
@@ -137,8 +137,9 @@
                                 <div id="tableDiv">
                                     <table cellpadding="10" cellspacing="5">
                                         <tr>
-                                            <th>Customer Spending Power (per customer/product) :</th>
+                                            <th>Customer Spending Power:</th>
                                             <td>
+                                                <div style="text-align: end; color: white;">per customer/product</div>
                                                 <input class="inputs" id='spending power'
                                                     placeholder="Enter Numerical Value" onchange="fill_total_expenditure()" value="0" />
                                             </td>
@@ -150,9 +151,11 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>No of Operational Days (days per month) :</th>
+                                            <th>No of Operational Days:</th>
                                             <td>
                                                 <input class="inputs" id='op' onchange="fill_total_expenditure()" placeholder="Enter Numerical Value" value="0" />
+                                                <div style="text-align: end; color: white;"> days per month</div>
+                                                <input class="inputs" id='op' placeholder="Enter Numerical Value" />
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
