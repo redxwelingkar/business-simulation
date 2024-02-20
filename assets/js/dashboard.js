@@ -124,7 +124,7 @@ $("document").ready(function () {
             {
                 duration: 700,
                 complete: function () {
-                    $("headerButtons").fadeIn({ queue: true });
+                    $("headerButtons_1").fadeIn({ queue: true });
                 },
             }
         );

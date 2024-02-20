@@ -9,8 +9,8 @@ function addRow_SAM() {
     const newCell2 = newRow.insertCell();
     const newCell3 = newRow.insertCell();
     const newCell4 = newRow.insertCell();
-    newCell1.innerHTML = '<input class="inputs" placeholder="Enter Name of Customer Segment" value="" >';
-    newCell2.innerHTML = '<input class="inputs" placeholder="Enter Numerical Value" value="" >';
+    newCell1.innerHTML = '<input class="inputs" placeholder="Enter Name of Customer Segment" value="" disabled>';
+    newCell2.innerHTML = '<input class="inputs" placeholder="Enter Numerical Value" value="" disabled>';
     newCell3.innerHTML = '<input class="inputs" placeholder="Enter Numerical Value" value="0" onchange="update_serviceable_market()" >';
     newCell4.innerHTML = '<input class="inputs" placeholder="Enter Numerical Value" value="0" disabled>';
 }
@@ -100,9 +100,9 @@ function populate_SAM(){
         const newRow = table_SAM.insertRow();
 
         const newCell1 = newRow.insertCell();
-        newCell1.innerHTML = '<input class="inputs"  value='+ data[i]['column0']+' >';
+        newCell1.innerHTML = '<input class="inputs"  value='+ data[i]['column0']+' disabled>';
         const newCell2 = newRow.insertCell();
-        newCell2.innerHTML = '<input class="inputs"  value='+ data[i]['column1']+' >';
+        newCell2.innerHTML = '<input class="inputs"  value='+ data[i]['column1']+' disabled>';
         const newCell3 = newRow.insertCell();
         const newCell4 = newRow.insertCell();
         if(data_sam!=null){

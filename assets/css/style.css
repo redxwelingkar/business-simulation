@@ -438,6 +438,24 @@ left:2%;}
     display: block;
 }
 
+.img3HeaderButtons {
+    font-size: 1.8vmin;
+    border-radius: 5px;
+    background: #e89572;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    color: #fcf5e8;
+    text-align: center;
+    font-family: "Open Sans";
+    word-wrap: break-word;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    width: 99%;
+    margin-top: 2%;
+    display: block;
+}
+
 #headerButtons {
     text-align: center;
     grid-row-start: 1;
