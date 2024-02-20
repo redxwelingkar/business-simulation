@@ -1,4 +1,9 @@
 
+const img1 = document.getElementById("imgBack1")
+img1.addEventListener("click", function(){
+    document.getElementById('totalAddresable').click();
+})
+
 const table_TAM = document.getElementById("tableDiv_TAM").querySelector("table");
 const addButton_TAM = document.getElementById("add-button_TAM")
 const minusButton_TAM = document.getElementById("minus-button_TAM")
