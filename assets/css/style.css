@@ -447,6 +447,24 @@ left:2%;}
     margin-left: 1%;
 }
 
+#headerButtons_1 {
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: grid;
+    grid-template-columns: auto;
+    margin-left: 1%;
+}
+
+#headerButtons_2 {
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-left: 1%;
+}
+
 #middleSection {
     border-radius: 10px;
     background-color: #2d5366;
