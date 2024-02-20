@@ -486,7 +486,6 @@ th {
     padding: 12px;
     outline: none;
     width: 90%;
-
     background: #fcf5e8;
     box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.25) inset;
 }
@@ -552,6 +551,11 @@ th {
     /* overflow: auto; */
     width: 100%;
     height: 100%;
+}
+
+#tableDiv_TAM, #tableDiv_SAM{
+    overflow-y: auto;
+    max-height: 15rem;
 }
 
 #tableDiv {
