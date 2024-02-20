@@ -141,7 +141,8 @@
                                             <td>
                                                 <div style="text-align: end; color: white;">per customer/product</div>
                                                 <input class="inputs" id='spending power'
-                                                    placeholder="Enter Numerical Value" onchange="fill_total_expenditure()" value="0" />
+                                                    placeholder="Enter Numerical Value"
+                                                    onchange="fill_total_expenditure()" value="0" />
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
@@ -154,7 +155,8 @@
                                             <th>No of Operational Days:</th>
                                             <td>
                                                 <div style="text-align: end; color: white;"> days per month</div>
-                                                <input class="inputs" id='op' onchange="fill_total_expenditure()" placeholder="Enter Numerical Value" value="0" />
+                                                <input class="inputs" id='op' onchange="fill_total_expenditure()"
+                                                    placeholder="Enter Numerical Value" value="0" />
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
@@ -175,8 +177,9 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="TE_SAM_day">
-                                                            
+                                                        <div style="text-align: right; overflow-x: auto"
+                                                            id="TE_SAM_day">
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,8 +198,9 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="TE_SAM_month">
-                                                            
+                                                        <div style="text-align: right; overflow-x: auto"
+                                                            id="TE_SAM_month">
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,8 +218,9 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="TE_SAM_year">
-                                                            
+                                                        <div style="text-align: right; overflow-x: auto"
+                                                            id="TE_SAM_year">
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -232,7 +237,7 @@
                                             <th>SOM (Percentage of SAM) :</th>
                                             <td>
                                                 <input class="inputs" id='som_percentage_new'
-                                                    placeholder="Enter Numerical Value"  onchange="calculate_som()"/>
+                                                    placeholder="Enter Numerical Value" onchange="calculate_som()" />
                                             </td>
                                             <td>
                                                 <div class="total_save_div">
@@ -244,7 +249,7 @@
                                         <tr>
                                             <th>Serviceable Obt. Market :</th>
                                             <td>
-                                                <input class="inputs" id='som_market' value='0' disabled/>
+                                                <input class="inputs" id='som_market' value='0' disabled />
                                             </td>
                                             <!-- <td>
                                                 <div class="total_save_div">
@@ -265,8 +270,9 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="TE_SOM_day">
-                                                            
+                                                        <div style="text-align: right; overflow-x: auto"
+                                                            id="TE_SOM_day">
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -285,8 +291,9 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="TE_SOM_month">
-                                                           
+                                                        <div style="text-align: right; overflow-x: auto"
+                                                            id="TE_SOM_month">
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -304,8 +311,9 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="TE_SOM_year">
-                                                            
+                                                        <div style="text-align: right; overflow-x: auto"
+                                                            id="TE_SOM_year">
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -380,6 +388,7 @@
                     </div>
                 </div>
             </div>
+
             <div id="img2">
                 <div id="imgBack2"></div>
                 <span class="nameGrey" id="name2">Operational Expenditure</span>
@@ -389,11 +398,13 @@
                     </div>
                 </div>
             </div>
+
             <div id="img3">
                 <div id="imgBack3"></div>
                 <span class="nameGrey" id="name3">Capital Expenditure</span>
                 <div id="capitalExpenditure"></div>
             </div>
+
             <div id="img4">
                 <div id="imgBack4"></div>
                 <span class="nameGrey" id="name4">Sourcing Funds and Capital</span>

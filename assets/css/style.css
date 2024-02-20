@@ -406,7 +406,7 @@ left:2%;}
     color: #fcf5e8;
 }
 
-#marketLandscape {
+#marketLandscape, #operationalExpenditure, #capitalExpenditure, #sourcingFunds {
     margin-left: 13%;
     width: 87%;
     height: 100%;

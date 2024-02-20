@@ -105,6 +105,64 @@ $("document").ready(function () {
         whichSelected = "img2";
     });
 
+    // * Capital Expenditure Page Animations
+    $("#capitalExpenditure").hide();
+
+    $("#img3").click(function () {
+        $("#img1").animate({ left: "-150%" }, { duration: 550 });
+        $("#img2").animate({ left: "-150%" }, { duration: 800, delay: 100 });
+        $("#img3").animate(
+            { left: "5%", width: "90%" },
+            { duration: 1000, delay: 100 }
+        );
+        $("#img4").animate({ left: "150%" }, { duration: 550 });
+        $("#capitalExpenditure")
+            .show()
+            .animate({ "margin-right": "25%" }, { duration: 1000, queue: true });
+        $("#imgBack3").animate(
+            { left: "-12%", width: "25%" },
+            {
+                duration: 700,
+                complete: function () {
+                    $("headerButtons").fadeIn({ queue: true });
+                },
+            }
+        );
+        $("#name3").animate(
+            { left: "-16.1%", width: "25%", opacity: "0.0" },
+            { duration: 900 }
+        );
+        whichSelected = "img3";
+    });
+
+    // * Sourcing Funds and Capital Page Animations
+    $("#sourcingFunds").hide();
+
+    $("#img4").click(function () {
+        $("#img1").animate({ left: "-150%" }, { duration: 550 });
+        $("#img2").animate({ left: "-150%" }, { duration: 800 });
+        $("#img3").animate({ left: "-150%" }, { duration: 800 });
+        $("#img4").animate({ left: "5%", width: "90%" }, { duration: 1000 });
+        $("#sourcingFunds")
+            .show()
+            .animate({ "margin-right": "25%" }, { duration: 1000, queue: true });
+        $("#imgBack4").animate(
+            { left: "-12%", width: "25%" },
+            {
+                duration: 700,
+                complete: function () {
+                    $("#headerButtons").fadeIn({ queue: true });
+                },
+            }
+        );
+        $("#name4").animate(
+            { left: "-16.1%", width: "25%", opacity: "0.0" },
+            { duration: 900 }
+        );
+        whichSelected = "img4";
+    });
+
+    // * Back Button
     $("#backImg").click(function () {
         console.log(whichSelected);
         if (whichSelected === "img1") {
@@ -118,7 +176,6 @@ $("document").ready(function () {
                 { left: "0%", width: "96%", opacity: "1.0" },
                 { duration: 900 }
             );
-
             $("#marketLandscape").hide();
         } else if (whichSelected === "img2") {
             $("#img1").animate({ left: "5%" }, { duration: 550 });
@@ -130,6 +187,7 @@ $("document").ready(function () {
                 { left: "00%", width: "96%", opacity: "1.0" },
                 { duration: 600 }
             );
+            $("#operationalExpenditure").hide();
         } else if (whichSelected === "img3") {
             $("#img1").animate({ left: "5%" }, { duration: 550 });
             $("#img2").animate({ left: "28%" }, { duration: 550 });
@@ -140,6 +198,7 @@ $("document").ready(function () {
                 { left: "0px", width: "96%", opacity: "1.0" },
                 { duration: 900 }
             );
+            $("#capitalExpenditure").hide();
         } else if (whichSelected === "img4") {
             console.log("fghdfrg");
             $("#img1").animate({ left: "5%" }, { duration: 550 });
@@ -151,34 +210,7 @@ $("document").ready(function () {
                 { left: "0px", width: "96%", opacity: "1.0" },
                 { duration: 900 }
             );
+            $("#sourcingFunds").hide();
         }
-    });
-
-    $("#img3").click(function () {
-        $("#img1").animate({ left: "-150%" }, { duration: 550 });
-        $("#img2").animate({ left: "-150%" }, { duration: 800, delay: 100 });
-        $("#img3").animate(
-            { left: "5%", width: "90%" },
-            { duration: 1000, delay: 100 }
-        );
-        $("#img4").animate({ left: "150%" }, { duration: 550 });
-        $("#imgBack3").animate({ left: "-12%", width: "25%" }, { duration: 700 });
-        $("#name3").animate(
-            { left: "-16.1%", width: "25%", opacity: "0.0" },
-            { duration: 900 }
-        );
-        whichSelected = "img3";
-    });
-    $("#img4").click(function () {
-        $("#img1").animate({ left: "-150%" }, { duration: 550 });
-        $("#img2").animate({ left: "-150%" }, { duration: 800 });
-        $("#img3").animate({ left: "-150%" }, { duration: 800 });
-        $("#img4").animate({ left: "5%", width: "90%" }, { duration: 1000 });
-        $("#imgBack4").animate({ left: "-12%", width: "25%" }, { duration: 700 });
-        $("#name4").animate(
-            { left: "-16.1%", width: "25%", opacity: "0.0" },
-            { duration: 900 }
-        );
-        whichSelected = "img4";
     });
 });
