@@ -596,7 +596,7 @@ th {
 #tableDiv {
     grid-row-start: 1;
     grid-row-end: 1;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 #segment {
