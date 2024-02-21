@@ -80,6 +80,8 @@ $("document").ready(function () {
 
     // * Operational Expenditure Page Animations
     $("#operationalExpenditure").hide();
+    $("#opExp").hide();
+    $("#fixedCosts").hide();
 
     $("#img2").click(function () {
         $("#img1").animate({ left: "-50%" }, { duration: 1000 });
@@ -103,6 +105,20 @@ $("document").ready(function () {
             { duration: 600 }
         );
         whichSelected = "img2";
+    });
+
+    $("#operExpen").click(function () {
+        $("#operExpen").css({ "background-color": "#00506E" });
+        $("#fixCos").css({ "background-color": "#E89572" });
+        $("#opExp").show();
+        $("#fixedCosts").hide();
+    });
+
+    $("#fixCos").click(function () {
+        $("#operExpen").css({ "background-color": "#E89572" });
+        $("#fixCos").css({ "background-color": "#00506E" });
+        $("#opExp").hide();
+        $("#fixedCosts").show();
     });
 
     // * Capital Expenditure Page Animations
@@ -151,7 +167,7 @@ $("document").ready(function () {
             {
                 duration: 700,
                 complete: function () {
-                    $("#headerButtons").fadeIn({ queue: true });
+                    $("#headerButtons_2").fadeIn({ queue: true });
                 },
             }
         );

@@ -112,17 +112,7 @@
 
                                     </table>
                                 </div>
-                                <!-- <div id="segment">
-                                    <div id="addCustomerBtn">
-                                        <button class="button_frame" id="minus-button_SAM">
-                                            <img src="./assets/img/minus.svg" alt="Minus">
-                                        </button>
-                                        <div>Customer Segment</div>
-                                        <button class="button_frame" id="add-button_SAM">
-                                            <img src="./assets/img/add.svg" alt="Add" />
-                                        </button>
-                                    </div>
-                                </div> -->
+
                                 <div id="totalTab">
                                     <div class="total_text">Total Size of SAM:</div>
                                     <div class="total_text_number" id="total_som"></div>
@@ -395,7 +385,156 @@
                 <div id="operationalExpenditure">
                     <div id="leftSection">
 
+                        <div id="headerButtons_2">
+                            <button class="img3HeaderButtons" id="operExpen">Operational Expenditure</button>
+                            <button class="img3HeaderButtons" id="fixCos">Fixed Costs</button>
+                        </div>
+
+                        <div id="middleSection">
+
+                            <span id="opExp">
+
+                                <div id="tableDiv_Op_Exp">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th>Name of the Expenditure</th>
+                                            <th>Value of Expenditure</th>
+                                            <th>Units</th>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="inputs"
+                                                    placeholder="Enter Name of Expenditure" required value=""></td>
+                                            <td><input type="number" class="inputs" placeholder="Enter numerical value"
+                                                    required value=""></td>
+                                            <td>
+                                                <select class="inputs" id="opExp_Dropdown" required>
+                                                    <option value="">Select Unit</option>
+                                                    <option value="thousand">Thousand</option>
+                                                    <option value="crore">Crore</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="inputs"
+                                                    placeholder="Enter Name of Expenditure" required value=""></td>
+                                            <td><input type="number" class="inputs" placeholder="Enter numerical value"
+                                                    required value=""></td>
+                                            <td>
+                                                <select class="inputs" id="opExp_Dropdown" required>
+                                                    <option value="">Select Unit</option>
+                                                    <option value="thousand">Thousand</option>
+                                                    <option value="crore">Crore</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="segment">
+                                    <div id="addCustomerBtn">
+                                        <button class="button_frame" id="minus-button_OPEXP">
+                                            <img src="./assets/img/minus.svg" alt="Minus">
+                                        </button>
+                                        <div>Operational Expenditure</div>
+                                        <button class="button_frame" id="add-button_OPEXP">
+                                            <img src="./assets/img/add.svg" alt="Add" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="totalTab">
+                                    <div class="total_text">Total Op Ex :</div>
+                                    <div class="total_text_number" id="total_Op_Exp"></div>
+                                    <div class="total_save_div">
+                                        <button class="total_save_div_button"
+                                            onclick="retrieveTableDataOPEXP()">Save</button>
+                                    </div>
+                                </div>
+
+                            </span>
+
+                            <span id="fixedCosts">
+
+                                <div id="tableDiv_fixedCosts">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th>Name of the Expenditure</th>
+                                            <th>Value of Expenditure</th>
+                                            <th>Units</th>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="inputs" placeholder="Enter Name of Expenditure" required value=""></td>
+                                            <td><input type="number" class="inputs" placeholder="Enter numerical value" required value=""></td>
+                                            <td>
+                                                <select class="inputs" id="fixedCosts_Dropdown" required>
+                                                    <option value="">Select Unit</option>
+                                                    <option value="thousand">Thousand</option>
+                                                    <option value="crore">Crore</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="inputs" placeholder="Enter Name of Expenditure" required value=""></td>
+                                            <td><input type="number" class="inputs" placeholder="Enter numerical value" required value=""></td>
+                                            <td>
+                                                <select class="inputs" id="fixedCosts_Dropdown" required>
+                                                    <option value="">Select Unit</option>
+                                                    <option value="thousand">Thousand</option>
+                                                    <option value="crore">Crore</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div id="segment">
+                                    <div id="addCustomerBtn">
+                                        <button class="button_frame" id="minus-button_FixedCost">
+                                            <img src="./assets/img/minus.svg" alt="Minus">
+                                        </button>
+                                        <div>Fixed Cost</div>
+                                        <button class="button_frame" id="add-button_FixedCost">
+                                            <img src="./assets/img/add.svg" alt="Add" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="totalTab">
+                                    <div class="total_text">Total Fixed Costs :</div>
+                                    <div class="total_text_number" id="total_Fixed_Cost"></div>
+                                    <div class="total_save_div">
+                                        <button class="total_save_div_button"
+                                            onclick="retrieveTableDataFixedCost()">Save</button>
+                                    </div>
+                                </div>
+
+                            </span>
+
+                        </div>
+
                     </div>
+
+                    <div id="rightSection">
+                        <div id="placeholderSection">
+                            <div>
+                                <div>
+                                    <h1>Operation Expenditure</h1>
+                                </div>
+                                <div>
+                                    Operations Expenses
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <h1>Fixed Costs</h1>
+                                </div>
+                                <div>
+                                    Fixed Expenses
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -404,7 +543,7 @@
                 <span class="nameGrey" id="name3">Capital Expenditure</span>
                 <div id="capitalExpenditure">
                     <div id="leftSection">
-                        
+
                         <div id="headerButtons_1">
                             <button class="img3HeaderButtons">
                                 Capital Expenditure
@@ -465,7 +604,7 @@
                                             onclick="retrieveTableDataCAP()">Save</button>
                                     </div>
                                 </div>
-                                
+
                             </span>
                         </div>
 
