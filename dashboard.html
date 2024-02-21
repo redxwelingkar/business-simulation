@@ -400,7 +400,7 @@
             </div>
 
             <div id="img3">
-                <div id="imgBack3"></div>
+                <div id="imgBack3" onclick="populate_CAP()"></div>
                 <span class="nameGrey" id="name3">Capital Expenditure</span>
                 <div id="capitalExpenditure">
                     <div id="leftSection">
@@ -414,8 +414,35 @@
                         <div id="middleSection">
                             <span id="capitalExp">
 
-                                <div>
-                                    <!-- Table -->
+                                <div id="tableDiv_CAP">
+                                    <table cellpadding="10" cellspacing="5">
+                                        <colgroup>
+                                        <col width="40%">
+                                        <col width="40%">
+                                        <col width="20%">
+                                        </colgroup>
+                                        <tr>
+                                            <th>Name of Expenditure</th>
+                                            <th>Value of Expenditure</th>
+                                            <th>Unit</th>
+                                        </tr>    
+<!-- </tr>
+                                            <td>
+                                                <input class="inputs" placeholder="Enter name of Expenditure" />
+
+                                            </td>
+                                            <td>
+                                                <input class="inputs" placeholder="Enter Numerical Value" />
+                                            </td>
+                                            <td>
+                                                <select id="unit" class="inputs">
+                                                <option value="1">Thousands</option>
+                                                <option value="2">Lakhs</option>
+                                                <option value="3">Crores</option>
+                                                </select>
+                                            </td>
+                                        </tr> -->
+                                    </table>
                                 </div>
 
                                 <div id="segment">
@@ -432,7 +459,7 @@
 
                                 <div id="totalTab">
                                     <div class="total_text">Total Cap Ex :</div>
-                                    <div class="total_text_number" id="total_som"></div>
+                                    <div class="total_text_number" id="total_cap"></div>
                                     <div class="total_save_div">
                                         <button class="total_save_div_button"
                                             onclick="retrieveTableDataCAP()">Save</button>
@@ -448,18 +475,20 @@
                         <div id="placeholderSection">
                             <div>
                                 <div>
-                                    <h1>Total Addresable Market (TAM)</h1>
+                                    <h1>Capital expenditure (CapEx)</h1>
                                 </div>
                                 <div>
-                                    The total addressable market (TAM) refers to the total revenue
-                                    opportunity available for a product or service within a specific
-                                    market or industry. It represents the maximum potential sales volume
-                                    that a product or service could achieve if every possible customer
-                                    in the market purchased it. TAM is often used by businesses to assess
-                                    the potential size and attractiveness of a market before entering or
-                                    investing in it. It helps companies understand the revenue potential
-                                    and make strategic decisions regarding product development, marketing, and
-                                    expansion.
+                                    Capital expenditure (CapEx) in business refers to the funds used by a
+                                     company to acquire, upgrade, or maintain physical assets such as 
+                                     property, buildings, equipment, or technology that are expected to 
+                                     provide benefits over multiple years. These expenditures are typically 
+                                     made to improve the long-term productive capacity or efficiency of 
+                                     the company and are not intended for immediate consumption. Capital 
+                                     expenditures are considered investments in the business and are recorded
+                                     on the balance sheet as assets,rather than as expenses on the income statement. 
+                                     Examples of capital expenditures include purchasing new machinery, constructing 
+                                     a new factory, acquiring land, or upgrading computer systems. These investments 
+                                     are crucial for a company's growth, expansion, and competitiveness in the market.
                                 </div>
                             </div>
                         </div>
@@ -508,6 +537,7 @@
     <script src="./assets/js/sam.js"></script>
     <script src="./assets/js/csp.js"></script>
     <script src="./assets/js/som.js"></script>
+    <script src="./assets/js/cap.js"></script>
 </body>
 
 </html>
