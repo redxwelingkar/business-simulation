@@ -386,22 +386,21 @@
                     <div id="leftSection">
 
                         <div id="headerButtons_2">
-                            <button class="img3HeaderButtons" id="operExpen">Operational Expenditure</button>
-                            <button class="img3HeaderButtons" id="fixCos">Fixed Costs</button>
+                            <button class="img3HeaderButtons" id="operExpen" onclick="populate_op()">Operational Expenditure</button>
+                            <button class="img3HeaderButtons" id="fixCos" onclick="populate_fix()">Fixed Costs</button>
                         </div>
 
                         <div id="middleSection">
 
                             <span id="opExp">
-
-                                <div id="tableDiv_Op_Exp">
+                                <div id="tableDiv_op">
                                     <table cellpadding="10" cellspacing="5">
                                         <tr>
                                             <th>Name of the Expenditure</th>
                                             <th>Value of Expenditure</th>
                                             <th>Units</th>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td><input type="text" class="inputs"
                                                     placeholder="Enter Name of Expenditure" required value=""></td>
                                             <td><input type="number" class="inputs" placeholder="Enter numerical value"
@@ -426,17 +425,17 @@
                                                     <option value="crore">Crore</option>
                                                 </select>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </table>
                                 </div>
 
                                 <div id="segment">
                                     <div id="addCustomerBtn">
-                                        <button class="button_frame" id="minus-button_OPEXP">
+                                        <button class="button_frame" id="minus-button_op">
                                             <img src="./assets/img/minus.svg" alt="Minus">
                                         </button>
                                         <div>Operational Expenditure</div>
-                                        <button class="button_frame" id="add-button_OPEXP">
+                                        <button class="button_frame" id="add-button_op">
                                             <img src="./assets/img/add.svg" alt="Add" />
                                         </button>
                                     </div>
@@ -444,10 +443,10 @@
 
                                 <div id="totalTab">
                                     <div class="total_text">Total Op Ex :</div>
-                                    <div class="total_text_number" id="total_Op_Exp"></div>
+                                    <div class="total_text_number" id="total_op"></div>
                                     <div class="total_save_div">
                                         <button class="total_save_div_button"
-                                            onclick="retrieveTableDataOPEXP()">Save</button>
+                                            onclick="retrieveTableDataOP()">Save</button>
                                     </div>
                                 </div>
 
@@ -455,14 +454,14 @@
 
                             <span id="fixedCosts">
 
-                                <div id="tableDiv_fixedCosts">
+                                <div id="tableDiv_fix">
                                     <table cellpadding="10" cellspacing="5">
                                         <tr>
                                             <th>Name of the Expenditure</th>
                                             <th>Value of Expenditure</th>
                                             <th>Units</th>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td><input type="text" class="inputs" placeholder="Enter Name of Expenditure" required value=""></td>
                                             <td><input type="number" class="inputs" placeholder="Enter numerical value" required value=""></td>
                                             <td>
@@ -483,17 +482,17 @@
                                                     <option value="crore">Crore</option>
                                                 </select>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </table>
                                 </div>
 
                                 <div id="segment">
                                     <div id="addCustomerBtn">
-                                        <button class="button_frame" id="minus-button_FixedCost">
+                                        <button class="button_frame" id="minus-button_fix">
                                             <img src="./assets/img/minus.svg" alt="Minus">
                                         </button>
                                         <div>Fixed Cost</div>
-                                        <button class="button_frame" id="add-button_FixedCost">
+                                        <button class="button_frame" id="add-button_fix">
                                             <img src="./assets/img/add.svg" alt="Add" />
                                         </button>
                                     </div>
@@ -501,10 +500,10 @@
 
                                 <div id="totalTab">
                                     <div class="total_text">Total Fixed Costs :</div>
-                                    <div class="total_text_number" id="total_Fixed_Cost"></div>
+                                    <div class="total_text_number" id="total_fix"></div>
                                     <div class="total_save_div">
                                         <button class="total_save_div_button"
-                                            onclick="retrieveTableDataFixedCost()">Save</button>
+                                            onclick="retrieveTableDatafix()">Save</button>
                                     </div>
                                 </div>
 
@@ -521,7 +520,11 @@
                                     <h1>Operation Expenditure</h1>
                                 </div>
                                 <div>
-                                    Operations Expenses
+                                    
+                                Operation Expenditure (OPEX) refers to the day-to-day expenses incurred by a 
+                                business in its normal course of operations. These expenses are essential for 
+                                maintaining the business and generating revenue but are not directly related to 
+                                the acquisition or improvement of long-term assets. 
                                 </div>
                             </div>
                             <div>
@@ -529,7 +532,12 @@
                                     <h1>Fixed Costs</h1>
                                 </div>
                                 <div>
-                                    Fixed Expenses
+                                    Fixed expenditures in business refer to expenses that remain constant 
+                                    regardless of the level of production or sales volume. These costs do 
+                                    not fluctuate based on the business's output or sales performance within 
+                                    a certain period. Fixed expenditures are typically recurring and essential
+                                     for the operation of the business.
+                                     Examples of fixed expenditures include rent, salaries etc.
                                 </div>
                             </div>
                         </div>
@@ -589,7 +597,7 @@
                                         <button class="button_frame" id="minus-button_CAP">
                                             <img src="./assets/img/minus.svg" alt="Minus">
                                         </button>
-                                        <div>Customer Segment</div>
+                                        <div>Capital Expenditure</div>
                                         <button class="button_frame" id="add-button_CAP">
                                             <img src="./assets/img/add.svg" alt="Add" />
                                         </button>
@@ -677,6 +685,8 @@
     <script src="./assets/js/csp.js"></script>
     <script src="./assets/js/som.js"></script>
     <script src="./assets/js/cap.js"></script>
+    <script src="./assets/js/op_exp.js"></script>
+    <script src="./assets/js/fixed_exp.js"></script>
 </body>
 
 </html>
