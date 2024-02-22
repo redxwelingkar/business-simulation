@@ -454,7 +454,7 @@
                                                     </div>
                                                     <div class="orangeBoxTotal_CSP">
                                                         <div style="text-align: left">INR</div>
-                                                        <div style="text-align: right; overflow-x: auto" id="EMI"
+                                                        <div style="text-align: right; overflow-x: auto" id="emi"
                                                             value="0">
                                                         </div>
                                                     </div>
@@ -673,7 +673,7 @@
             </div>
 
             <div id="img4">
-                <div id="imgBack4"></div>
+                <div id="imgBack4" onclick="populate_FUN()"></div>
                 <span class="nameGrey" id="name4">Sourcing Funds and Capital</span>
                 <div id="sourcingFunds">
 
@@ -687,7 +687,7 @@
 
                             <span id="funds">
 
-                                <div id="tableDiv_Funds">
+                                <div id="tableDiv_fun">
                                     <table cellpadding="10" cellspacing="3" style=" width:99%; ">
                                         <tr>
                                             <th width="15%">Name of Entity</th>
@@ -697,39 +697,32 @@
                                             <th width="15%">Interest Amount (INR)</th>
                                             <th width="15%">Monthly Principal Payment (INR)</th>
                                         </tr>
-                                        <tr>
-                                            <td><input class="inputs" placeholder="Enter name of Expenditure" /></td>
-                                            <td><input class="inputs" placeholder="Enter Numerical Value" /></td>
-                                            <td><input class="inputs" placeholder="Enter Numerical Value" /></td>
-                                            <td><input class="inputs" placeholder="Enter Numerical Value" /></td>
-                                            <td><input class="inputs" placeholder="Enter Numerical Value" /></td>
-                                            <td><input class="inputs" placeholder="Enter Numerical Value" /></td>
-                                        </tr>
+
                                     </table>
                                 </div>
 
                                 <div id="segment">
                                     <div id="addCustomerBtn">
-                                        <button class="button_frame" id="minus-button_FUN">
+                                        <button class="button_frame" id="minus-button_fun">
                                             <img src="./assets/img/minus.svg" alt="Minus">
                                         </button>
                                         <div>Funding</div>
-                                        <button class="button_frame" id="add-button_FUN">
+                                        <button class="button_frame" id="add-button_fun">
                                             <img src="./assets/img/add.svg" alt="Add" />
                                         </button>
                                     </div>
                                 </div>
 
                                 <div id="totalTab">
-                                    <!-- <div class="total_text_1">
+                                    <div class="total_text_1">
 
-                                        Total Interest Amount per Annum:
-                                        <span id="name" class="total_text_number_1"> 454 </span>
+                                        Total Interest Amount :
+                                        <span id="total_interest" class="total_text_number_1"> 0</span>
                                     </div>
                                     <div class="total_text_1">
                                         Monthly Total Principal Payment:
-                                        <span id="name" class="total_text_number_1"> 454 </span>
-                                    </div> -->
+                                        <span id="total_repay" class="total_text_number_1"> 0 </span>
+                                    </div>
                                     <div class="total_save_div" style="justify-content: center;">
                                         <button class="total_save_div_button"
                                             onclick="retrieveTableDataFUN()">Save</button>
@@ -749,8 +742,32 @@
                                 <div>
                                     <h1>Funding</h1>
                                 </div>
-                                <div>
-                                    Funding
+                                <div>  <br>
+                                    Funding refers to the money or financial resources provided
+                                    to a company or organization to support its operations, growth, or specific projects. 
+                                    Funding can come from various sources, including:
+                                    <br>  <br>
+                                    1. Equity Financing: This involves selling ownership stakes in the company in exchange for
+                                       capital. Investors, such as venture capitalists, angel investors, or even friends and 
+                                       family, provide funding in exchange for shares or ownership interests in the business.
+                                       <br>  <br>
+                                    2. Debt Financing: This involves borrowing money that must be repaid over time with interest.
+                                     Debt financing can come from banks, financial institutions, or through the issuance of 
+                                     corporate bonds.
+                                     <br>  <br>
+                                    3. Grants: Some businesses, particularly those in certain industries or focused on specific
+                                     initiatives like research and development, may receive funding in the form of grants from 
+                                     government agencies, non-profit organizations, or foundations.
+                                     <br>  <br>
+                                    4. Bootstrapping: This involves using personal savings, revenue generated by the business, 
+                                    or other non-traditional sources to fund operations and growth without external financing.
+                                    <br>  <br>
+                                    5. Crowdfunding: This involves raising small amounts of money from a large number of 
+                                    individuals or entities through online platforms. Crowdfunding can take various forms, including rewards-based crowdfunding, equity crowdfunding, and donation-based crowdfunding.
+                                    <br>  <br>
+                                    6. Strategic Partnerships: Some businesses may enter into partnerships with other
+                                     companies or organizations that provide funding, resources, or expertise in exchange 
+                                     for access to the business's products, services, or technology.
                                 </div>
                             </div>
                         </div>
@@ -783,12 +800,12 @@
 
             <div class="orangeBoxTotal" style="width: 95%;">
                 <div style="text-align: left">INR</div>
-                <div style="text-align: right; overflow-x: auto">26,58,137.5</div>
+                <div style="text-align: right; overflow-x: auto" id="runway"></div>
             </div>
             <div class="orangeBoxTotal" style="width: 100%; grid-template-columns: 10% 90%;">
                 <div></div>
-                <select class="inputs" name="number_dropdown" style="margin: 5%;">
-                    <option value="">--Select--</option>
+                <select class="inputs" id="month_run" onchange="calculate_runway()" style="margin: 5%;">
+                    <option value="0" selected>0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -817,6 +834,7 @@
     <script src="./assets/js/cap.js"></script>
     <script src="./assets/js/op_exp.js"></script>
     <script src="./assets/js/fixed_exp.js"></script>
+    <script src="./assets/js/funding.js"></script>
 </body>
 
 </html>

@@ -85,7 +85,12 @@ function retrieveTableDataOP() {
     const sp=localStorage.getItem('spending power');
     const total_op_ref=parseInt(document.getElementById('total_op').innerText);
     document.getElementById('ebt').innerHTML=percentage*total_som*sp-total_op_ref;
-    
+    localStorage.setItem('ebt',percentage*total_som*sp-total_op_ref);
+
+    ////////////////////////runway//////////////////////
+    const total_fix=localStorage.getItem('total_fix');
+    const total_cap=localStorage.getItem('total_cap');
+    document.getElementById('runway').innerHTML=total_fix+ total_cap + 3*total_op_ref;
 
     return tableData;
    
@@ -142,6 +147,18 @@ function populate_op(){
         document.getElementById('total_op').innerText=localStorage.getItem('total_op');    
     }
     }
+
+   
+    if(localStorage.getItem("emi")==null){
+        document.getElementById("emi").innerText=0
+    }else{ 
+       
+    document.getElementById("emi").innerText=localStorage.getItem("ebt");
+    
+}
+
+
+
 }
 
 
@@ -173,9 +190,23 @@ const sp=localStorage.getItem('spending power');
 const total_op_ref=parseInt(document.getElementById('total_op').innerText);
 document.getElementById('ebt').innerHTML=percentage*total_som*sp-total_op_ref;
 
+/////runway///////////////
+const total_fix=localStorage.getItem('total_fix');
+const total_cap=localStorage.getItem('total_cap');
+document.getElementById('runway').innerHTML=total_fix+ total_cap + 3*total_op_ref;
+
 }
 
 
+function calculate_runway(){
+const month=parseInt(document.getElementById('month_run').value)
+const total_op_ref=parseInt(localStorage.getItem('total_op'));
+const total_fix=parseInt(localStorage.getItem('total_fix'));
+const total_cap=parseInt(localStorage.getItem('total_cap'));
+document.getElementById('runway').innerHTML=total_fix+ total_cap + 3*total_op_ref*month;
+}
+
+		
 
 // Add event listeners
 addButton_op.addEventListener("click", addRow_op);
