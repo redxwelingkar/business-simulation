@@ -121,8 +121,14 @@ function get_business_name(){
 
 function populate_business_name(){
     document.getElementById("BusinessName").value=localStorage.getItem("b_name");
+    if(localStorage.getItem("ebt")==null){
+        document.getElementById("ebt").value=0
+    }else{ 
+       
+    document.getElementById("ebt").innerText=localStorage.getItem("ebt");
+    
 }
-
+}
 
 function populate_total_tam(){
     var total_tam=0

@@ -5,6 +5,8 @@ img2.addEventListener("click", function(){
 
 
 
+
+
 const table_op = document.getElementById("tableDiv_op").querySelector("table");
 const addButton_op = document.getElementById("add-button_op")
 const minusButton_op = document.getElementById("minus-button_op")
@@ -77,6 +79,14 @@ function retrieveTableDataOP() {
     // Return the tableData array containing all the table data
 
     localStorage.setItem('total_op', document.getElementById('total_op').innerText);
+////////////////////ebt//////////////////////////////
+    const percentage=parseFloat(localStorage.getItem('percentage_of_sam'))
+    const total_som=parseInt(localStorage.getItem('total_som'))
+    const sp=localStorage.getItem('spending power');
+    const total_op_ref=parseInt(document.getElementById('total_op').innerText);
+    document.getElementById('ebt').innerHTML=percentage*total_som*sp-total_op_ref;
+    
+
     return tableData;
    
 
@@ -112,15 +122,15 @@ function populate_op(){
 
             if(track==2){
                 if(parseInt(data[i][key])==1){
-                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1" selected>Thousands</option><option value="2">Lakhs</option><option value="3">Crores</option></select>'
+                    newCell.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1" selected>Thousands</option><option value="2">Lakhs</option><option value="3">Crores</option></select>'
                 } else if (parseInt(data[i][key])==2){
-                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Thousands</option><option value="2" selected>Lakhs</option><option value="3">Crores</option></select>'
+                    newCell.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1">Thousands</option><option value="2" selected>Lakhs</option><option value="3">Crores</option></select>'
                 } else{
-                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1" >Thousands</option><option value="2">Lakhs</option><option value="3" selected>Crores</option></select>'
+                    newCell.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1" >Thousands</option><option value="2">Lakhs</option><option value="3" selected>Crores</option></select>'
                 }
                 
             }else{
-                newCell.innerHTML = '<input class="inputs"  onchange="populate_total_cap()" value='+data[i][key]+' >';
+                newCell.innerHTML = '<input class="inputs"  onchange="populate_total_op()" value='+data[i][key]+' >';
             }
             track=track+1
         
@@ -156,6 +166,12 @@ function populate_total_op(){
 
 } 
 document.getElementById('total_op').innerText=total_op;
+///ebt////////
+const percentage=parseFloat(localStorage.getItem('percentage_of_sam'))
+const total_som=parseInt(localStorage.getItem('total_som'))
+const sp=localStorage.getItem('spending power');
+const total_op_ref=parseInt(document.getElementById('total_op').innerText);
+document.getElementById('ebt').innerHTML=percentage*total_som*sp-total_op_ref;
 
 }
 
