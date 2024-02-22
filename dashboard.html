@@ -430,7 +430,7 @@
                                     </table>
                                 </div>
 
-                                <div id="segment">
+                                <div id="segment" style="flex-direction: column;">
                                     <div id="addCustomerBtn">
                                         <button class="button_frame" id="minus-button_op">
                                             <img src="./assets/img/minus.svg" alt="Minus">
@@ -440,6 +440,29 @@
                                             <img src="./assets/img/add.svg" alt="Add" />
                                         </button>
                                     </div>
+
+                                    <table cellpadding="10" cellspacing="5">
+                                        <tr>
+                                            <th style="width: 50%;">Equated Monthly Instalment : </th>
+                                            <td colspan="2">
+                                                <div class="box_CSP" style="width: 100%;">
+                                                    <div class="boxTop_CSP" style="grid-template-columns: auto;">
+                                                        <div style="text-align: left"></div>
+                                                        <div style="text-align: right; color: white">
+                                                            <i>Calulated from Funding</i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="orangeBoxTotal_CSP">
+                                                        <div style="text-align: left">INR</div>
+                                                        <div style="text-align: right; overflow-x: auto" id="EMI"
+                                                            value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
                                 </div>
 
                                 <div id="totalTab">
@@ -669,10 +692,10 @@
                                         <tr>
                                             <th width="15%">Name of Entity</th>
                                             <th width="15%">Loan Term (Years)</th>
-                                            <th width="15%">Amount</th>
-                                            <th width="15%">Interest</th>
-                                            <th width="15%">Interest Amount</th>
-                                            <th width="15%">Monthly Principal Payment</th>
+                                            <th width="15%">Amount (INR)</th>
+                                            <th width="15%">Interest (%)</th>
+                                            <th width="15%">Interest Amount (INR)</th>
+                                            <th width="15%">Monthly Principal Payment (INR)</th>
                                         </tr>
                                         <tr>
                                             <td><input class="inputs" placeholder="Enter name of Expenditure" /></td>
@@ -698,7 +721,7 @@
                                 </div>
 
                                 <div id="totalTab">
-                                    <div class="total_text_1">
+                                    <!-- <div class="total_text_1">
 
                                         Total Interest Amount per Annum:
                                         <span id="name" class="total_text_number_1"> 454 </span>
@@ -706,7 +729,7 @@
                                     <div class="total_text_1">
                                         Monthly Total Principal Payment:
                                         <span id="name" class="total_text_number_1"> 454 </span>
-                                    </div>
+                                    </div> -->
                                     <div class="total_save_div" style="justify-content: center;">
                                         <button class="total_save_div_button"
                                             onclick="retrieveTableDataFUN()">Save</button>
@@ -753,14 +776,33 @@
         </div>
 
         <div class="box2">
-            <div class="boxTop">
+            <div class="boxTop" style="grid-template-columns: 60% 80%;">
                 <div style="text-align: left">Working Capital</div>
-                <div style="text-align: right">for first 3 months</div>
+                <div style="text-align: right">for months</div>
             </div>
 
-            <div class="orangeBoxTotal">
+            <div class="orangeBoxTotal" style="width: 95%;">
                 <div style="text-align: left">INR</div>
                 <div style="text-align: right; overflow-x: auto">26,58,137.5</div>
+            </div>
+            <div class="orangeBoxTotal" style="width: 100%; grid-template-columns: 10% 90%;">
+                <div></div>
+                <select class="inputs" name="number_dropdown" style="margin: 5%;">
+                    <option value="">--Select--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+
             </div>
         </div>
     </div>
