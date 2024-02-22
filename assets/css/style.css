@@ -406,7 +406,10 @@ left:2%;}
     color: #fcf5e8;
 }
 
-#marketLandscape, #operationalExpenditure, #capitalExpenditure, #sourcingFunds {
+#marketLandscape,
+#operationalExpenditure,
+#capitalExpenditure,
+#sourcingFunds {
     margin-left: 13%;
     width: 87%;
     height: 100%;
@@ -577,7 +580,12 @@ th {
     height: 100%;
 }
 
-#TAM, #SAM, #capitalExp, #opExp, #fixedCosts {
+#TAM,
+#SAM,
+#capitalExp,
+#opExp,
+#fixedCosts,
+#funds {
     position: inherit;
     top: 0;
     left: 0;
@@ -588,7 +596,11 @@ th {
     height: 100%;
 }
 
-#tableDiv_TAM, #tableDiv_SAM, #tableDiv_Op_Exp, #tableDiv_fixedCost {
+#tableDiv_TAM,
+#tableDiv_SAM,
+#tableDiv_Op_Exp,
+#tableDiv_fixedCost,
+#tableDiv_Funds {
     overflow-y: auto;
     max-height: 15rem;
 }
@@ -650,9 +662,33 @@ th {
     justify-self: center;
 }
 
+.total_text_1 {
+    font-size: 1.5vmin;
+    color: white;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    font-weight: 700;
+}
+
 .total_text_number {
     grid-column-start: 2;
     grid-column-end: 2;
+    color: #2d5366;
+    border-radius: 12px;
+    width: 50%;
+    font-size: 3.3vmin;
+    background: #fcf5e8;
+    box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.25) inset;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: flex-end;
+    font-weight: 700;
+    padding: 1%;
+}
+
+.total_text_number_1 {
     color: #2d5366;
     border-radius: 12px;
     width: 90%;
