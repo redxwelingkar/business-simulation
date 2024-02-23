@@ -11,7 +11,7 @@ $("document").ready(function () {
 
     $("#img1").click(function () {
         $("#img1").animate({ left: "5%", width: "90%" }, { duration: 1000 });
-        $("#img2").animate({ left: "150%" }, { duration: 1000, delay: 100 });
+        $("#img2").animate({ left: "150%" }, { duration: 1000 });
         $("#img3").animate({ left: "150%" }, { duration: 800 });
         $("#img4").animate({ left: "150%" }, { duration: 550 });
         $("#marketLandscape")
@@ -20,7 +20,7 @@ $("document").ready(function () {
         $("#imgBack1").animate(
             { left: "-12%", width: "25%" },
             {
-                duration: 700,
+                duration: 500,
                 complete: function () {
                     $("#headerButtons").fadeIn({ queue: true });
                 },
@@ -183,14 +183,14 @@ $("document").ready(function () {
         console.log(whichSelected);
         if (whichSelected === "img1") {
             console.log("dfg");
-            $("#img1").animate({ left: "5%", width: "21%" }, { duration: 550 });
-            $("#img2").animate({ left: "28%" }, { duration: 550 });
-            $("#img3").animate({ left: "51%" }, { duration: 550 });
-            $("#img4").animate({ left: "74%" }, { duration: 550 });
-            $("#imgBack1").animate({ left: "0px", width: "100%" }, { duration: 700 });
+            $("#img1").animate({ left: "5%", width: "20%" }, { duration: 10 });
+            $("#img2").animate({ left: "28%" }, { duration: 10 });
+            $("#img3").animate({ left: "51%" }, { duration: 10 });
+            $("#img4").animate({ left: "74%" }, { duration: 10 });
+            $("#imgBack1").animate({ left: "0px", width: "100%" }, { duration: 10 });
             $("#name1").animate(
                 { left: "0%", width: "96%", opacity: "1.0" },
-                { duration: 900 }
+                { duration: 10 }
             );
             $("#marketLandscape").hide();
         } else if (whichSelected === "img2") {

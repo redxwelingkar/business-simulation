@@ -598,11 +598,12 @@ th {
 
 #tableDiv_TAM,
 #tableDiv_SAM,
-#tableDiv_Op_Exp,
-#tableDiv_fixedCost,
-#tableDiv_Funds {
+#tableDiv_op,
+#tableDiv_fix,
+#tableDiv_CAP,
+#tableDiv_fun {
     overflow-y: auto;
-    max-height: 15rem;
+    max-height: 18rem;
 }
 
 #tableDiv {
