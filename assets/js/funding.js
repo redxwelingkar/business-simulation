@@ -67,8 +67,9 @@ function retrieveTableDataFUN() {
 
     localStorage.setItem('total_interest', document.getElementById('total_interest').innerText);
     localStorage.setItem('total_repay', document.getElementById('total_repay').innerText);
-
-    var emi=parseInt(document.getElementById('total_repay').innerText) + parseInt(document.getElementById('total_interest').innerText)/12
+    alert(parseInt((document.getElementById('total_repay').innerText)-83333)+"  "+parseInt(document.getElementById('total_interest').innerText)/12)
+    var emi=parseInt((document.getElementById('total_repay').innerText)-83333) + parseInt((document.getElementById('total_interest').innerText)/12)
+    alert(emi)
     localStorage.setItem('emi',emi);
     return tableData;
    
@@ -137,7 +138,8 @@ function populate_total_fun(){
     for (let i = 1; i < table_fun.rows.length; i++) {
         const row = table_fun.rows[i];
         const amount=parseInt(row.cells[2].querySelector("input").value)
-        const interest=parseFloat(row.cells[3].querySelector("input").value)
+        var interest=parseFloat(row.cells[3].querySelector("input").value)
+        interest=interest/100
         const term=parseInt(row.cells[1].querySelector("input").value)
         row.cells[4].querySelector("input").value=Math.round(amount*interest)
         row.cells[5].querySelector("input").value=Math.round(amount/term/12)

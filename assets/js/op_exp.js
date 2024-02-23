@@ -84,8 +84,10 @@ function retrieveTableDataOP() {
     const total_som=parseInt(localStorage.getItem('total_som'))
     const sp=localStorage.getItem('spending power');
     const total_op_ref=parseInt(document.getElementById('total_op').innerText);
-    document.getElementById('ebt').innerHTML=percentage*total_som*sp-total_op_ref;
-    localStorage.setItem('ebt',percentage*total_som*sp-total_op_ref);
+    const op=parseInt(localStorage.getItem('operational days'));
+    document.getElementById('ebt').innerHTML=(percentage*total_som*sp*op)-total_op_ref;
+    localStorage.setItem('ebt',(percentage*total_som*sp*op)-total_op_ref);
+    
 
     ////////////////////////runway//////////////////////
     const total_fix=localStorage.getItem('total_fix');
@@ -153,7 +155,7 @@ function populate_op(){
         document.getElementById("emi").innerText=0
     }else{ 
        
-    document.getElementById("emi").innerText=localStorage.getItem("ebt");
+    document.getElementById("emi").innerText=localStorage.getItem("emi");
     
 }
 
@@ -188,22 +190,27 @@ const percentage=parseFloat(localStorage.getItem('percentage_of_sam'))
 const total_som=parseInt(localStorage.getItem('total_som'))
 const sp=localStorage.getItem('spending power');
 const total_op_ref=parseInt(document.getElementById('total_op').innerText);
-document.getElementById('ebt').innerHTML=percentage*total_som*sp-total_op_ref;
+const op=parseInt(localStorage.getItem('operational days'));
+//percentage of som  * population of sam = actual som volume
+//monthly sales=actual som value * operational day 
+document.getElementById('ebt').innerHTML=(percentage*total_som*sp*op)-total_op_ref;
 
 /////runway///////////////
+var month_run=parseInt(document.getElementById('month_run').value)
 const total_fix=localStorage.getItem('total_fix');
 const total_cap=localStorage.getItem('total_cap');
-document.getElementById('runway').innerHTML=total_fix+ total_cap + 3*total_op_ref;
+
+document.getElementById('runway').innerHTML=total_fix+ total_cap + month_run*total_op_ref;
 
 }
 
 
 function calculate_runway(){
-const month=parseInt(document.getElementById('month_run').value)
 const total_op_ref=parseInt(localStorage.getItem('total_op'));
 const total_fix=parseInt(localStorage.getItem('total_fix'));
 const total_cap=parseInt(localStorage.getItem('total_cap'));
-document.getElementById('runway').innerHTML=total_fix+ total_cap + 3*total_op_ref*month;
+var month_run=parseInt(document.getElementById('month_run').value)
+document.getElementById('runway').innerHTML=total_fix+ total_cap + month_run*total_op_ref;
 }
 
 		

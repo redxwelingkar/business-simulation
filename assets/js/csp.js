@@ -34,10 +34,14 @@ function populate_csp(){
 function calculate_total_expenditure(){
     const op=parseInt(localStorage.getItem('operational days'));
     const sp=parseInt(localStorage.getItem('spending power'));
-    if(isNaN(op)===false && isNaN(sp)===false ){
-        document.getElementById('TE_SAM_day').innerText=op*sp
-        document.getElementById('TE_SAM_month').innerText=op*sp*30
-        document.getElementById('TE_SAM_year').innerText=op*sp*365
+    const total_som=parseInt(localStorage.getItem('total_som'));
+
+    if(isNaN(op)===false && isNaN(sp)===false && isNaN(total_som)===false){
+        
+        document.getElementById('TE_SAM_day').innerText=sp*total_som
+        document.getElementById('TE_SAM_month').innerText=op*sp*total_som
+        document.getElementById('TE_SAM_year').innerText=op*sp*12*total_som
+        console.log(op*sp*total_som+"   "+total_som)
     }else{
         document.getElementById('TE_SAM_day').innerText=0
         document.getElementById('TE_SAM_month').innerText=0
@@ -53,10 +57,12 @@ function fill_total_expenditure(){
    
     const sp=parseInt(document.getElementById('spending power').value);
     const op=parseInt(document.getElementById("op").value);
-    if(isNaN(op)===false || isNaN(sp)===false || (op!='' && sp!='')){
-        document.getElementById('TE_SAM_day').innerText=op*sp
-        document.getElementById('TE_SAM_month').innerText=op*sp*30
-        document.getElementById('TE_SAM_year').innerText=op*sp*365
+    const total_som=parseInt(localStorage.getItem('total_som'));
+    if(isNaN(op)===false && isNaN(sp)===false && isNaN(total_som)===false && (op!='' && sp!='')){
+        document.getElementById('TE_SAM_day').innerText=sp*total_som
+        document.getElementById('TE_SAM_month').innerText=op*sp*total_som
+        document.getElementById('TE_SAM_year').innerText=op*sp*12*total_som
+        console.log(op*sp*total_som+"   "+total_som)
     } else{
         document.getElementById('TE_SAM_day').innerText=0
         document.getElementById('TE_SAM_month').innerText=0
