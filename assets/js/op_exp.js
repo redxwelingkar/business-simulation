@@ -92,7 +92,10 @@ function retrieveTableDataOP() {
     ////////////////////////runway//////////////////////
     const total_fix=localStorage.getItem('total_fix');
     const total_cap=localStorage.getItem('total_cap');
-    document.getElementById('runway').innerHTML=total_fix+ total_cap + 3*total_op_ref;
+    var runway=total_fix+ total_cap + 3*total_op_ref;
+    localStorage.setItem('runway',runway);
+    console.log("done  "+ localStorage.getItem('runway'))
+    document.getElementById('runway').innerHTML=runway;
 
     return tableData;
    

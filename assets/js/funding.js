@@ -68,7 +68,7 @@ function retrieveTableDataFUN() {
     localStorage.setItem('total_interest', document.getElementById('total_interest').innerText);
     localStorage.setItem('total_repay', document.getElementById('total_repay').innerText);
     // alert(parseInt((document.getElementById('total_repay').innerText)-83333)+"  "+parseInt(document.getElementById('total_interest').innerText)/12)
-    var emi=parseInt((document.getElementById('total_repay').innerText)-83333) + parseInt((document.getElementById('total_interest').innerText)/12)
+    var emi=parseInt((document.getElementById('total_repay').innerText)) + parseInt((document.getElementById('total_interest').innerText)/12)
     // alert(emi)
     localStorage.setItem('emi',emi);
     return tableData;
