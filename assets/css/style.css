@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
 .body {
     position: absolute;
     top: 0px;
@@ -372,9 +375,9 @@ left:2%;}
 .box2 {
     position: absolute;
     right: 5%;
+    top: 0;
     display: grid;
     width: 42%;
-    background-color: green;
     grid-template-rows: auto auto;
     border-radius: 10px;
     background: #fcf5e8;
@@ -677,7 +680,7 @@ th {
     grid-column-end: 2;
     color: #2d5366;
     border-radius: 12px;
-    width: 50%;
+    width: 90%;
     font-size: 3.3vmin;
     background: #fcf5e8;
     box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.25) inset;
@@ -713,7 +716,9 @@ th {
     grid-column-start: 3;
     grid-column-end: 3;
     display: flex;
-    height: 90%;
+    align-self: center;
+    justify-self: center;
+    height: 80%;
     width: 90%;
     outline: none;
 }
@@ -734,4 +739,18 @@ th {
     border: none;
     padding: 0;
     cursor: pointer;
+}
+
+.placeholderSection_font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; /* SemiBold weight for Open Sans */
+    color: #2D5366;
+    font-size: 13px;
+}
+
+.placeholderSection_font_header {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700; /* Bold weight for Open Sans */
+    font-size: 16px;
+    color: #2D5366;
 }
