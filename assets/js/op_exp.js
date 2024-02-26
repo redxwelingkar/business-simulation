@@ -19,7 +19,7 @@ function addRow_op() {
     const newCell1 = newRow.insertCell();
     const newCell2 = newRow.insertCell();
     const newCell3 = newRow.insertCell();
-    newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" value="0" />';
+    newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" />';
     newCell2.innerHTML = '<input class="inputs" onchange="populate_total_op()" placeholder="Enter Numerical Value" value="0" />';
     newCell3.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1" selected>Thousands</option><option value="2">Lakhs</option><option value="3">Crores</option></select>'
 }
