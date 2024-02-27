@@ -3,12 +3,14 @@
 
 function save_op(){
 localStorage.setItem("operational days",document.getElementById('op').value);
-swal("Your data has been saved");
+swal({text:"Your data has been saved",showConfirmButton:false});
+
 }
 
 function save_spending(){
     localStorage.setItem("spending power",document.getElementById("spending power").value);
-    swal("Your data has been saved");
+    swal({text:"Your data has been saved",showConfirmButton:false});
+    
 }
 
 
