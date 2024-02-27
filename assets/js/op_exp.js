@@ -58,7 +58,7 @@ function retrieveTableDataOP() {
         for (let j = 0; j < row.cells.length; j++) {
             const cell = row.cells[j];
            
-            if(j==2){
+            if(j==1){
                 rowData["column" + j] = cell.querySelector("select").value;
             }else{
                 rowData["column" + j] = cell.querySelector("input").value;
