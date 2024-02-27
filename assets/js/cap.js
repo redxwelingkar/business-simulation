@@ -13,8 +13,8 @@ function addRow_CAP() {
     const newCell2 = newRow.insertCell();
     const newCell3 = newRow.insertCell();
     newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" value="" />';
-    newCell2.innerHTML = '<input class="inputs" onchange="populate_total_cap()" placeholder="Enter Numerical Value" value="" />';
-    newCell3.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1" selected>Thousands</option><option value="2">Lakhs</option><option value="3">Crores</option></select>'
+    newCell3.innerHTML = '<input class="inputs" onchange="populate_total_cap()" placeholder="Enter Numerical Value" value="0" />';
+    newCell2.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
 }
 
 
@@ -50,7 +50,7 @@ function retrieveTableDataCAP() {
         // Iterate through each cell of the row
         for (let j = 0; j < row.cells.length; j++) {
             const cell = row.cells[j];
-           
+
             if(j==2){
                 rowData["column" + j] = cell.querySelector("select").value;
             }else{
@@ -107,18 +107,17 @@ function populate_CAP(){
 
             if(track==2){
                 if(parseInt(data[i][key])==1){
-                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1" selected>Thousands</option><option value="2">Lakhs</option><option value="3">Crores</option></select>'
+                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
                 } else if (parseInt(data[i][key])==2){
-                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Thousands</option><option value="2" selected>Lakhs</option><option value="3">Crores</option></select>'
+                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
                 } else{
-                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1" >Thousands</option><option value="2">Lakhs</option><option value="3" selected>Crores</option></select>'
+                    newCell.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
                 }
                 
             }else{
                 newCell.innerHTML = '<input class="inputs"  onchange="populate_total_cap()" value='+data[i][key]+' >';
             }
             track=track+1
-        
         }
     }
     if(localStorage.getItem('total_cap')==="undefined"){
@@ -126,7 +125,7 @@ function populate_CAP(){
     }else{
         document.getElementById('total_cap').innerText=localStorage.getItem('total_tam');    
     }
-    }
+}
 }
 
 
@@ -137,14 +136,18 @@ function populate_total_cap(){
     // Iterate through each row of the table
     for (let i = 1; i < table_CAP.rows.length; i++) {
         const row = table_CAP.rows[i];
-        amount=parseInt(row.cells[1].querySelector("input").value)
-        unit=parseInt(row.cells[2].querySelector("select").value)
+        amount=parseInt(row.cells[2].querySelector("input").value)
+        unit=parseInt(row.cells[1].querySelector("select").value)
         var actual_amount=0
         if(unit==1){
-            actual_amount=amount*1000
+            actual_amount=amount*10
         }else if(unit==2){
+            actual_amount=amount*100
+        }else if(unit==3){
+            actual_amount=amount*1000
+        }else if(unit==4){
             actual_amount=amount*100000
-        }else {
+        }else if(unit==5){
             actual_amount=amount*10000000
         }
         total_cap=total_cap+actual_amount;

@@ -22,7 +22,6 @@ function addRow_op() {
     newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" />';
     newCell2.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
     newCell3.innerHTML = '<input class="inputs" onchange="populate_total_op()" placeholder="Enter Numerical Value" value="0" />';
-    
 }
 
 
@@ -32,7 +31,7 @@ function removeRow_op() {
     const rows = table_op.getElementsByTagName('tr');
     if (rows.length > 1) { // Check if there's more than one row to prevent removing the header
         table_op.deleteRow(rows.length - 1);
-        populate_total_cap()
+        populate_total_op()
     }
     
 }
@@ -75,7 +74,8 @@ function retrieveTableDataOP() {
     console.log(jsonString)
     localStorage.setItem('data_op',jsonString);
     
-    swal("Operational Expenditure data has been saved");
+    
+    swal({text:"Operational Expenditure data has been saved",showConfirmButton:false});
     console.log(document.getElementById('total_op').innerText+"total cap");
     // Return the tableData array containing all the table data
 

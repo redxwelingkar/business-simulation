@@ -61,7 +61,8 @@ function retrieveTableDataFUN() {
     const jsonString = JSON.stringify(tableData)
     localStorage.setItem('data_fun',jsonString);
     
-    swal("Funding  data has been saved");
+
+    swal({text:"Funding  data is saved",showConfirmButton:false});
     //console.log(document.getElementById('total_fun').innerText+"total fun");
     // Return the tableData array containing all the table data
 

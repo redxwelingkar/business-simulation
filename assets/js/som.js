@@ -5,7 +5,8 @@ function retrieve_som(){
         var per=parseFloat(document.getElementById('som_percentage_new').value);
         per=per/100
         localStorage.setItem('percentage_of_sam',per);
-        swal('Your data is saved!')
+        
+        swal({text:"SOM data has been saved",showConfirmButton:false});
         console.log(document.getElementById('som_percentage_new').value,per)
 
 }

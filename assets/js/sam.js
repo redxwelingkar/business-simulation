@@ -67,8 +67,8 @@ function retrieveTableDataSAM() {
     const jsonStringSAM = JSON.stringify(tableDataSAM)
     localStorage.setItem('data_sam', jsonStringSAM);
     localStorage.setItem('total_som', document.getElementById('total_som').innerText);
-    swal("SAM data has been saved");
-
+  
+    swal({text:"SAM data has been saved",showConfirmButton:false});
     // Return the tableData array containing all the table data
 
     return tableDataSAM;

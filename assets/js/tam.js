@@ -59,7 +59,7 @@ function retrieveTableDataTAM() {
     const jsonString = JSON.stringify(tableData)
     localStorage.setItem('data',jsonString);
     
-    swal("TAM data has been saved");
+    swal({text:"TAM data has been saved",showConfirmButton:false});
     console.log(document.getElementById('total_tam').innerText+"total tam");
     // Return the tableData array containing all the table data
 
@@ -116,7 +116,8 @@ function populate_TAM(){
 function get_business_name(){
     b_name=document.getElementById("BusinessName");
     localStorage.setItem("b_name",b_name.value);
-    swal("Business name is saved");
+    swal({text:"Business name is saved",showConfirmButton:false});
+    
 }
 
 function populate_business_name(){
@@ -137,6 +138,25 @@ if(localStorage.getItem("runway")==null){
 document.getElementById("runway").innerText=localStorage.getItem("runway");
 
 }
+
+if(localStorage.getItem("runway")==null){
+   
+    document.getElementById("runway").innerText=0
+}else{ 
+   
+document.getElementById("runway").innerText=localStorage.getItem("runway");
+
+}
+
+if(localStorage.getItem("emi")==null){
+   
+    document.getElementById("runway").innerText=0
+}else{ 
+document.getElementById('emi_table').style.visibility='visible';
+document.getElementById("runway").innerText=localStorage.getItem("runway");
+}
+
+
 
 
 }
