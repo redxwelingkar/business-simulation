@@ -227,6 +227,8 @@ $("document").ready(function () {
                 { duration: 900 }
             );
             $("#sourcingFunds").hide();
+        } else if (whichSelected === "Null") {
+            window.location.href = "../../index.html"
         }
     });
 });
