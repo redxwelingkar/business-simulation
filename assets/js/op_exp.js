@@ -23,8 +23,8 @@ function addRow_op() {
     const newCell2 = newRow.insertCell();
     const newCell3 = newRow.insertCell();
     newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" />';
-    newCell2.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
-    newCell3.innerHTML = '<input class="inputs" onchange="populate_total_op()" placeholder="Enter Numerical Value" value="0" />';
+    newCell3.innerHTML ='<select id="unit" onchange="populate_total_op()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
+    newCell2.innerHTML = '<input class="inputs" onchange="populate_total_op()" placeholder="Enter Numerical Value" value="0" />';
 }
 
 
@@ -61,7 +61,7 @@ function retrieveTableDataOP() {
         for (let j = 0; j < row.cells.length; j++) {
             const cell = row.cells[j];
            
-            if(j==1){
+            if(j==2){
                 rowData["column" + j] = cell.querySelector("select").value;
             }else{
                 rowData["column" + j] = cell.querySelector("input").value;
@@ -178,8 +178,8 @@ function populate_total_op(){
     // Iterate through each row of the table
     for (let i = 1; i < table_op.rows.length; i++) {
         const row = table_op.rows[i];
-        amount=parseFloat(row.cells[2].querySelector("input").value)
-        unit=parseInt(row.cells[1].querySelector("select").value)
+        amount=parseFloat(row.cells[1].querySelector("input").value)
+        unit=parseInt(row.cells[2].querySelector("select").value)
         var actual_amount=0
         if(unit==1){
             actual_amount=amount*10

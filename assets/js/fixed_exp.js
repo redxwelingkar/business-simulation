@@ -16,8 +16,8 @@ function addRow_fix() {
     const newCell2 = newRow.insertCell();
     const newCell3 = newRow.insertCell();
     newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" value="" />';
-    newCell3.innerHTML = '<input class="inputs" onchange="populate_total_fix()" placeholder="Enter Numerical Value" value="0" />';
-    newCell2.innerHTML ='<select id="unit" onchange="populate_total_fix()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
+    newCell2.innerHTML = '<input class="inputs" onchange="populate_total_fix()" placeholder="Enter Numerical Value" value="0" />';
+    newCell3.innerHTML ='<select id="unit" onchange="populate_total_fix()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
 }
 
 
@@ -54,7 +54,7 @@ function retrieveTableDatafix() {
         for (let j = 0; j < row.cells.length; j++) {
             const cell = row.cells[j];
            
-            if(j==1){
+            if(j==2){
                 rowData["column" + j] = cell.querySelector("select").value;
             }else{
                 rowData["column" + j] = cell.querySelector("input").value;
@@ -128,7 +128,7 @@ function populate_fix(){
     if(localStorage.getItem('total_fix')==="undefined"){
         document.getElementById('total_fix').innerText=0;
     }else{
-        document.getElementById('total_fix').innerText=alocalStorage.getItem('total_fix');    
+        document.getElementById('total_fix').innerText=localStorage.getItem('total_fix');    
     }
     }
 }
@@ -141,8 +141,8 @@ function populate_total_fix(){
     // Iterate through each row of the table
     for (let i = 1; i < table_fix.rows.length; i++) {
         const row = table_fix.rows[i];
-        amount=parseInt(row.cells[2].querySelector("input").value)
-        unit=parseInt(row.cells[1].querySelector("select").value)
+        amount=parseInt(row.cells[1].querySelector("input").value)
+        unit=parseInt(row.cells[2].querySelector("select").value)
         var actual_amount=0
         if(unit==1){
             actual_amount=amount*10
