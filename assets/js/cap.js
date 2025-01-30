@@ -4,6 +4,10 @@ const table_CAP = document.getElementById("tableDiv_CAP").querySelector("table")
 const addButton_CAP = document.getElementById("add-button_CAP")
 const minusButton_CAP = document.getElementById("minus-button_CAP")
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
+
 
 
 // Function to add a new row
@@ -13,8 +17,8 @@ function addRow_CAP() {
     const newCell2 = newRow.insertCell();
     const newCell3 = newRow.insertCell();
     newCell1.innerHTML = '<input class="inputs" placeholder="Enter name of Expenditure" value="" />';
-    newCell3.innerHTML = '<input class="inputs" onchange="populate_total_cap()" placeholder="Enter Numerical Value" value="0" />';
-    newCell2.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
+    newCell2.innerHTML = '<input class="inputs" onchange="populate_total_cap()" placeholder="Enter Numerical Value" value="0" />';
+    newCell3.innerHTML ='<select id="unit" onchange="populate_total_cap()" class="inputs"><option value="1">Tens</option><option value="2">Hundreds</option><option value="3" selected>Thousands</option><option value="4">Lakhs</option><option value="5">Crores</option></select>'
 }
 
 
@@ -123,7 +127,7 @@ function populate_CAP(){
     if(localStorage.getItem('total_cap')==="undefined"){
         document.getElementById('total_cap').innerText=0;
     }else{
-        document.getElementById('total_cap').innerText=localStorage.getItem('total_tam');    
+        document.getElementById('total_cap').innerText=localStorage.getItem('total_cap');    
     }
 }
 }
@@ -136,8 +140,8 @@ function populate_total_cap(){
     // Iterate through each row of the table
     for (let i = 1; i < table_CAP.rows.length; i++) {
         const row = table_CAP.rows[i];
-        amount=parseInt(row.cells[2].querySelector("input").value)
-        unit=parseInt(row.cells[1].querySelector("select").value)
+        amount=parseInt(row.cells[1].querySelector("input").value)
+        unit=parseInt(row.cells[2].querySelector("select").value)
         var actual_amount=0
         if(unit==1){
             actual_amount=amount*10
@@ -153,27 +157,9 @@ function populate_total_cap(){
         total_cap=total_cap+actual_amount;
 
 } 
-document.getElementById('total_cap').innerText=total_cap;
+document.getElementById('total_cap').innerText=addCommas(total_cap);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

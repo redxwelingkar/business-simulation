@@ -13,6 +13,9 @@ function save_spending(){
     
 }
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
 
 function populate_csp(){
     const op=localStorage.getItem('operational days');
@@ -40,9 +43,9 @@ function calculate_total_expenditure(){
 
     if(isNaN(op)===false && isNaN(sp)===false && isNaN(total_som)===false){
         
-        document.getElementById('TE_SAM_day').innerText=sp*total_som
-        document.getElementById('TE_SAM_month').innerText=op*sp*total_som
-        document.getElementById('TE_SAM_year').innerText=op*sp*12*total_som
+        document.getElementById('TE_SAM_day').innerText=addCommas(sp*total_som)
+        document.getElementById('TE_SAM_month').innerText=addCommas(op*sp*total_som)
+        document.getElementById('TE_SAM_year').innerText=addCommas(op*sp*12*total_som)
         console.log(op*sp*total_som+"   "+total_som)
     }else{
         document.getElementById('TE_SAM_day').innerText=0
@@ -61,9 +64,9 @@ function fill_total_expenditure(){
     const op=parseInt(document.getElementById("op").value);
     const total_som=parseInt(localStorage.getItem('total_som'));
     if(isNaN(op)===false && isNaN(sp)===false && isNaN(total_som)===false && (op!='' && sp!='')){
-        document.getElementById('TE_SAM_day').innerText=sp*total_som
-        document.getElementById('TE_SAM_month').innerText=op*sp*total_som
-        document.getElementById('TE_SAM_year').innerText=op*sp*12*total_som
+        document.getElementById('TE_SAM_day').innerText=addCommas(sp*total_som)
+        document.getElementById('TE_SAM_month').innerText=addCommas(op*sp*total_som)
+        document.getElementById('TE_SAM_year').innerText=addCommas(op*sp*12*total_som)
         console.log(op*sp*total_som+"   "+total_som)
     } else{
         document.getElementById('TE_SAM_day').innerText=0

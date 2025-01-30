@@ -2,6 +2,11 @@ const table_fun = document.getElementById("tableDiv_fun").querySelector("table")
 const addButton_fun = document.getElementById("add-button_fun")
 const minusButton_fun = document.getElementById("minus-button_fun")
 
+
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
+
 // Function to add a new row
 function addRow_fun() {
     const newRow = table_fun.insertRow();
@@ -142,16 +147,16 @@ function populate_total_fun(){
         var interest=parseFloat(row.cells[3].querySelector("input").value)
         interest=interest/100
         const term=parseInt(row.cells[1].querySelector("input").value)
-        row.cells[4].querySelector("input").value=Math.round(amount*interest)
-        row.cells[5].querySelector("input").value=Math.round(amount/term/12)
+        row.cells[4].querySelector("input").value=addCommas(Math.round(amount*interest))
+        row.cells[5].querySelector("input").value=addCommas(Math.round(amount/term/12))
         total_interest=total_interest+(amount*interest)
         total_repay=total_repay+(amount/term/12)
     }
 
 
 
-document.getElementById('total_interest').innerText=Math.round(total_interest);
-document.getElementById('total_repay').innerText=Math.round(total_repay);
+document.getElementById('total_interest').innerText=addCommas(Math.round(total_interest));
+document.getElementById('total_repay').innerText=addCommas(Math.round(total_repay));
 
 }
 

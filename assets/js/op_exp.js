@@ -3,6 +3,9 @@ img2.addEventListener("click", function(){
     document.getElementById('operExpen').click();
 })
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
 
 
 
@@ -191,7 +194,7 @@ function populate_total_op(){
         }
         total_op=total_op+actual_amount;
 } 
-document.getElementById('total_op').innerText=total_op;
+document.getElementById('total_op').innerText=addCommas(total_op);
 ///ebt////////
 const percentage=parseFloat(localStorage.getItem('percentage_of_sam'))
 const total_som=parseInt(localStorage.getItem('total_som'))

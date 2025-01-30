@@ -162,6 +162,11 @@ document.getElementById("runway").innerText=localStorage.getItem("runway");
 }
 
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
+
+
 
 function populate_total_tam(){
     var total_tam=0
@@ -173,7 +178,7 @@ function populate_total_tam(){
         total_tam=total_tam+parseInt(row.cells[1].querySelector("input").value);
 
 } 
-document.getElementById('total_tam').innerText=total_tam;
+document.getElementById('total_tam').innerText=addCommas(total_tam);
 
 }
 

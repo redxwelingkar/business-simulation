@@ -4,6 +4,9 @@ const table_fix = document.getElementById("tableDiv_fix").querySelector("table")
 const addButton_fix = document.getElementById("add-button_fix")
 const minusButton_fix = document.getElementById("minus-button_fix")
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
 
 
 // Function to add a new row
@@ -51,10 +54,11 @@ function retrieveTableDatafix() {
         for (let j = 0; j < row.cells.length; j++) {
             const cell = row.cells[j];
            
-            if(j==2){
+            if(j==1){
                 rowData["column" + j] = cell.querySelector("select").value;
             }else{
                 rowData["column" + j] = cell.querySelector("input").value;
+
             }
             // Retrieve the input value from the cell and store it in the rowData object
         }
@@ -67,7 +71,7 @@ function retrieveTableDatafix() {
     console.log(jsonString)
     localStorage.setItem('data_fix',jsonString);
     
-    swal("Fixed Expenditure data has been saved");
+    swal({text:"Fixed Expenditure data has been saved",showConfirmButton:false});
     console.log(document.getElementById('total_fix').innerText+"total fix");
     // Return the tableData array containing all the table data
 
@@ -124,7 +128,7 @@ function populate_fix(){
     if(localStorage.getItem('total_fix')==="undefined"){
         document.getElementById('total_fix').innerText=0;
     }else{
-        document.getElementById('total_fix').innerText=localStorage.getItem('total_fix');    
+        document.getElementById('total_fix').innerText=alocalStorage.getItem('total_fix');    
     }
     }
 }
@@ -154,7 +158,7 @@ function populate_total_fix(){
         total_fix=total_fix+actual_amount;
 
 } 
-document.getElementById('total_fix').innerText=total_fix;
+document.getElementById('total_fix').innerText=addCommas(total_fix);
 }
 
 

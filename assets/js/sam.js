@@ -1,6 +1,9 @@
 
 const table_SAM = document.getElementById("tableDiv_SAM").querySelector("table");
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
 
 // Function to add a new row
 function addRow_SAM() {
@@ -50,7 +53,7 @@ function retrieveTableDataSAM() {
             // Retrieve the input value from the cell and store it in the rowData object
             rowDataSAM["column" + j] = cell.querySelector("input").value;
             if (j == 0) {
-                rowDataTAM["column" + j] = cell.querySelector("input").value
+                rowDataTAM["column" + j] =cell.querySelector("input").value
             } else if (j == 1) [
                 rowDataTAM["column" + j] = cell.querySelector("input").value
             ]
@@ -139,6 +142,9 @@ function populate_SAM() {
     }
 }
 
+
+
+
 function populate_total_som1() {
 
     var total_som = 0;
@@ -151,9 +157,10 @@ function populate_total_som1() {
     }
 
     console.log(total_som);
-    document.getElementById('total_som').innerText = total_som;
+    document.getElementById('total_som').innerText = addCommas(total_som);
 
 }
+
 
 
 //ratio calculation
