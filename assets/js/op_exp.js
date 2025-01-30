@@ -89,7 +89,7 @@ function retrieveTableDataOP() {
     const sp=localStorage.getItem('spending power');
     const total_op_ref=parseInt(document.getElementById('total_op').innerText);
     const op=parseInt(localStorage.getItem('operational days'));
-    document.getElementById('ebt').innerHTML=(percentage*total_som*sp*op)-total_op_ref;
+    document.getElementById('ebt').innerHTML=addCommas((percentage*total_som*sp*op)-total_op_ref);
     localStorage.setItem('ebt',(percentage*total_som*sp*op)-total_op_ref);
     
 
@@ -99,7 +99,7 @@ function retrieveTableDataOP() {
     var runway=total_fix+ total_cap + 3*total_op_ref;
     localStorage.setItem('runway',runway);
     console.log("done  "+ localStorage.getItem('runway'))
-    document.getElementById('runway').innerHTML=runway;
+    document.getElementById('runway').innerHTML=addCommas(runway);
 
     return tableData;
    
