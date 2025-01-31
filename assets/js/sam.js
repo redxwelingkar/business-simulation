@@ -165,19 +165,23 @@ function populate_total_som1() {
 
 //ratio calculation
 function update_serviceable_market() {
-
     for (let i = 1; i < table_SAM.rows.length; i++) {
         const row = table_SAM.rows[i];
         const cell2 = row.cells[2];
         var ratio = cell2.querySelector("input").value;
-        ratio = ratio / 100
+
+        if (ratio < 0 || ratio > 100) {
+            swal({ text: "Please enter a value between 0 and 100", icon: "error" });
+            return;
+        }
+
+        ratio = ratio / 100;
         const cell1 = row.cells[1];
         const population = cell1.querySelector("input").value;
         const cell3 = row.cells[3];
         cell3.querySelector("input").value = parseInt(population) * parseFloat(ratio);
     }
-    populate_total_som1()
-
+    populate_total_som1();
 }
 
 
