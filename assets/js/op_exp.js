@@ -199,7 +199,7 @@ document.getElementById('total_op').innerText=addCommas(total_op);
 const percentage=parseFloat(localStorage.getItem('percentage_of_sam'))
 const total_som=parseInt(localStorage.getItem('total_som'))
 const sp=localStorage.getItem('spending power');
-const total_op_ref=parseInt(document.getElementById('total_op').innerText);
+var total_op_ref=parseInt(document.getElementById('total_op').innerText);
 const op=parseInt(localStorage.getItem('operational days'));
 //percentage of som  * population of sam = actual som volume
 //monthly sales=actual som value * operational day 
@@ -207,20 +207,26 @@ document.getElementById('ebt').innerHTML=(percentage*total_som*sp*op)-total_op_r
 
 /////runway///////////////
 var month_run=parseInt(document.getElementById('month_run').value)
-const total_fix=localStorage.getItem('total_fix');
-const total_cap=localStorage.getItem('total_cap');
+var total_fix=localStorage.getItem('total_fix');
+var total_cap=localStorage.getItem('total_cap');
+console.log(total_fix,total_cap)
 
-document.getElementById('runway').innerHTML=total_fix+ total_cap + month_run*total_op_ref;
+document.getElementById('runway').innerHTML=parseInt(removeCommas(total_fix))+ parseInt(removeCommas(total_cap)) + month_run*parseInt(total_op_ref);
 
 }
 
+/// lets remove commas
+function removeCommas(str) {
+    return str.replace(/,/g, ''); // Replace all commas with an empty string
+}
 
 function calculate_runway(){
-const total_op_ref=parseInt(localStorage.getItem('total_op'));
-const total_fix=parseInt(localStorage.getItem('total_fix'));
-const total_cap=parseInt(localStorage.getItem('total_cap'));
+const total_op_ref=parseInt(removeCommas(localStorage.getItem('total_op')));
+const total_fix=parseInt(removeCommas(localStorage.getItem('total_fix')));
+const total_cap=parseInt(removeCommas(localStorage.getItem('total_cap')));
 var month_run=parseInt(document.getElementById('month_run').value)
 document.getElementById('runway').innerHTML=total_fix+ total_cap + month_run*total_op_ref;
+
 }
 
 		

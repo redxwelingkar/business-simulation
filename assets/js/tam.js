@@ -9,13 +9,18 @@ const addButton_TAM = document.getElementById("add-button_TAM")
 const minusButton_TAM = document.getElementById("minus-button_TAM")
 
 
+function addCommas(number) {
+    return new Intl.NumberFormat('en-IN').format(number);
+}
+
+
 // Function to add a new row
 function addRow_TAM() {
     const newRow = table_TAM.insertRow();
     const newCell1 = newRow.insertCell();
     const newCell2 = newRow.insertCell();
     newCell1.innerHTML = '<input class="inputs" placeholder="Enter Name of Customer Segment" required  value="" >';
-    newCell2.innerHTML = '<input class="inputs" type="number" onchange="populate_total_tam()" placeholder="Enter Numerical Value" required value="0"  >';
+    newCell2.innerHTML = '<input class="inputs" type="text" onchange="populate_total_tam()"  placeholder="Enter Numerical Value" required value="0"  >';
 }
 
 
@@ -94,10 +99,11 @@ function populate_TAM(){
         const newRow = table_TAM.insertRow();
         for (let key in data[i]) {
             // Insert a new cell for each property
+            console.log(data[i],key)
             const newCell = newRow.insertCell();
             // Set the innerText of the cell to the value of the current property
             
-            if(key=='column2'){
+            if(key=='column1'){
                 newCell.innerHTML = '<input class="inputs" onchange="populate_total_tam()" placeholder="Enter Name of Customer Segment" value='+ data[i][key]+'   >';
             }else{
                 newCell.innerHTML = '<input class="inputs" placeholder="Enter Name of Customer Segment" value='+ data[i][key]+'  >';
@@ -149,7 +155,6 @@ document.getElementById("runway").innerText=localStorage.getItem("runway");
 }
 
 if(localStorage.getItem("emi")==null){
-   
     document.getElementById("runway").innerText=0
 }else{ 
 document.getElementById('emi_table').style.visibility='visible';
@@ -162,9 +167,6 @@ document.getElementById("runway").innerText=localStorage.getItem("runway");
 }
 
 
-function addCommas(number) {
-    return new Intl.NumberFormat('en-IN').format(number);
-}
 
 
 

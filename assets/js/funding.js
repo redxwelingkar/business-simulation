@@ -147,16 +147,16 @@ function populate_total_fun(){
         var interest=parseFloat(row.cells[3].querySelector("input").value)
         interest=interest/100
         const term=parseInt(row.cells[1].querySelector("input").value)
-        row.cells[4].querySelector("input").value=addCommas(amount*interest)
-        row.cells[5].querySelector("input").value=addCommas(amount/term/12)
+        row.cells[4].querySelector("input").value=amount*interest
+        row.cells[5].querySelector("input").value=amount/term/12
         total_interest=total_interest+(amount*interest)
         total_repay=total_repay+(amount/term/12)
     }
 
 
 
-document.getElementById('total_interest').innerText=addCommas(Math.round(total_interest));
-document.getElementById('total_repay').innerText=addCommas(Math.round(total_repay));
+document.getElementById('total_interest').innerText=total_interest;
+document.getElementById('total_repay').innerText=total_repay;
 
 }
 
