@@ -41,16 +41,19 @@ function populate_som(){
 
     }
 
-
+/// lets remove commas
+function removeCommas(str) {
+    return str.replace(/,/g, ''); // Replace all commas with an empty string
+}
 
 
 
 function calculate_som(){
-    const op=parseInt(localStorage.getItem('operational days'));
+    const op=parseInt(removeCommas(localStorage.getItem('operational days')));
     var som_percentage=document.getElementById('som_percentage_new').value
     som_percentage=som_percentage/100
-    const total_som=parseInt(localStorage.getItem('total_som'));
-    const sp=parseInt(localStorage.getItem('spending power'))
+    const total_som=parseInt(removeCommas(localStorage.getItem('total_som')));
+    const sp=parseInt(removeCommas(localStorage.getItem('spending power')))
     if(isNaN(total_som)===false || isNaN(som_percentage)===false || isNaN(som_percentage)===false || (sp!='' && total_som!='')){
         document.getElementById('TE_SOM_day').innerText=addCommas(som_percentage*total_som*sp)
         document.getElementById('TE_SOM_month').innerText=addCommas(som_percentage*total_som*sp*op)
